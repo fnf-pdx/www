@@ -51,6 +51,58 @@
           "ReadCapacityUnits" : "1",
           "WriteCapacityUnits" : "1"
         }
+      },
+      "shows" : {
+        "Type": "AWS::DynamoDB::Table",
+        "Properties": {
+          "TableName": "shows",
+          "AttributeDefinitions": [
+            {
+              "AttributeName": "name",
+              "AttributeType": "S"
+            }
+          ],
+          "KeySchema": [
+            {
+              "AttributeName": "name",
+              "KeyType": "HASH"
+            }
+          ],
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": "1",
+            "WriteCapacityUnits": "1"
+          }
+        }
+      },
+      "events" : {
+        "Type": "AWS::DynamoDB::Table",
+        "Properties": {
+          "TableName": "events",
+          "AttributeDefinitions": [
+            {
+              "AttributeName": "showName",
+              "AttributeType": "S"
+            },
+            {
+              "AttributeName": "date",
+              "AttributeType": "N"
+            }
+          ],
+          "KeySchema": [
+            {
+              "AttributeName": "showName",
+              "KeyType": "HASH"
+            },
+            {
+              "AttributeName": "date",
+              "KeyType": "RANGE"
+            }
+          ],
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": "1",
+            "WriteCapacityUnits": "1"
+          }
+        }
       }
     }
   }
