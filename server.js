@@ -6,10 +6,9 @@ AWS.config.region = 'us-west-2';
 
 var db = new AWS.DynamoDB();
 
-var signupHandler = require('./lib/handlers/signUp')(db);
-var waitingListHandler = require('./lib/handlers/waitingList')(db);
-var scheduleTnt = require('./lib/handlers/scheduleTnt')(db);
-var scheduleFnf = require('./lib/handlers/scheduleFnf')(db);
+var signUp = require('./lib/handlers/signUp')(db);
+var waitingList = require('./lib/handlers/waitingList')(db);
+var schedule = require('./lib/handlers/schedule')(db);
 
 var server = new Hapi.Server();
 server.connection({ port: 3000 });
@@ -22,7 +21,8 @@ server.views({
   layout: true,
   path: 'views',
   layoutPath: 'views/layout',
-  helpersPath: 'views/helpers'
+  helpersPath: 'views/helpers',
+  partialsPath: 'views/partials'
 });
 
 server.route({
@@ -46,43 +46,41 @@ server.route({
 server.route({
   method: 'GET',
   path: '/sign-up',
-  handler: signupHandler.renderForm
+  handler: {
+    view: 'signUp'
+  }
 });
 
 server.route({
   method: 'POST',
   path: '/sign-up',
-  handler: signupHandler.saveTeam
+  handler: signUp.save
 });
 
 server.route({
   method: 'GET',
   path: '/waiting-list',
-  handler: waitingListHandler.list
+  handler: waitingList.list
 });
 
 server.route({
   method: 'GET',
-  path: '/schedule-tnt',
-  handler: scheduleTnt.renderForm
-});
-
-server.route({
-  method: 'POST',
-  path: '/schedule-Tnt',
-  handler: scheduleTnt.saveEvent
+  path: '/schedule',
+  handler: {
+    view: 'scheduleLanding'
+  }
 });
 
 server.route({
   method: 'GET',
-  path: '/schedule-fnf',
-  handler: scheduleFnf.renderForm
+  path: '/schedule/{showName}',
+  handler: schedule.form
 });
 
 server.route({
   method: 'POST',
-  path: '/schedule-fnf',
-  handler: scheduleFnf.saveEvent
+  path: '/schedule/{showName}',
+  handler: schedule.save
 });
 
 server.register({
