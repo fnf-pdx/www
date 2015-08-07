@@ -1,0 +1,27 @@
+{
+  "name": "fnf",
+  "version": "1.0.0",
+  "description": "signup site for friday night fights",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/notxt/fnf.git"
+  },
+  "author": "michael schoenfelder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/notxt/fnf/issues"
+  },
+  "homepage": "https://github.com/notxt/fnf",
+  "dependencies": {
+    "aws-sdk": "^2.1.42",
+    "good": "^6.3.0",
+    "good-console": "^5.0.2",
+    "handlebars": "^3.0.3",
+    "hapi": "^8.8.1",
+    "moment-timezone": "^0.4.0"
+  }
+}
