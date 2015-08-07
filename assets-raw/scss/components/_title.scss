@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Title of sections
+   ========================================================================== */
+
+.title {
+    @include bleed();
+    @extend .push-double;
+    @extend .kilo;
+    font-family: $fontDefault;
+    font-weight: $fontWeight;
+    text-align: center;
+    margin-top: 0;
+    padding-top: $baseSpacing * 0.25;
+    padding-bottom: $baseSpacing * 0.25;
+    color: $white;
+    background: $blue;
+}

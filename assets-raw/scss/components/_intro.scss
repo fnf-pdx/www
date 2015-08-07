@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Intro - Landing area
+   ========================================================================== */
+
+.intro {
+    display: table;
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    margin: 0;
+    background: url(../img/bg-tools--small.jpg) no-repeat center center fixed;
+    background-color: $blue;
+    background-size: cover;
+    @include breakpoint(laptop) {
+        background-image: url(../img/bg-tools--large.jpg);
+    }
+    .hgroup {
+        text-align: center;
+        vertical-align: middle;
+        display: table-cell;
+        height: 100%;
+        padding: ($baseSpacing * 10) 0;
+        padding: 0% 10%;
+        @include breakpoint(tablet) {
+            padding: 0% 20%;
+        }
+        .introHeader {
+            @extend .yotta;
+            font-size: 1.6018rem;
+            line-height: 1.5;
+            color: $white;
+            @include breakpoint(tablet) {
+              font-size: 2.2807rem;
+              line-height: 1.3154;
+            }
+            .normal {
+                @include breakpoint(tablet) {
+                    font-size: 1.5rem;
+                }
+                font-size: 1.2rem;
+            }
+        }
+    }
+    .downArrow {
+        @extend %transition-default;
+        font-size: $baseSpacing;
+        text-decoration: none;
+        margin-top: $baseSpacing;
+        padding: 0 0.6rem;
+        color: $white;
+        border: 0.2rem solid $white;
+        border-radius: 50%;
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: 0.75;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.social-wrap {
+    text-align: center;
+    background: $blue;
+}
+
+.social {
+    @extend .listInline;
+    display: block;
+    li {
+        text-align: center;
+    }
+    li a {
+        @extend %transition-default;
+        text-align: middle;
+        vertical-align: middle;
+        display: inline-block;
+        padding: $baseSpacing * 0.5;
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none;
+            opacity: .75;
+        }
+    }
+    svg {
+        width: 25px;
+        height: 25px;
+        fill: white;
+    }
+}
+
+.thanks-inner {
+    @extend .island;
+    text-align: center;
+    margin-bottom: $baseSpacing;
+    border: 0.1rem solid darken($blueSecondary, 2%);
+    background: $blueSecondary;
+
+    .zetta {
+        display: block;
+        margin-bottom: $baseSpacing;
+    }
+}
+
