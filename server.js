@@ -21,7 +21,7 @@ server.views({
   layout: true,
   path: 'views',
   layoutPath: 'views/layout',
-  helpersPath: 'views/helpers',
+  helpersPath: 'lib/helpers',
   partialsPath: 'views/partials'
 });
 
@@ -31,6 +31,16 @@ server.route({
   handler: {
     directory: {
       path: 'bower_components'
+    }
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/assets/{param*}',
+  handler: {
+    directory: {
+      path: 'assets'
     }
   }
 });
