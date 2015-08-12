@@ -2,58 +2,142 @@
    Intro - Landing area
    ========================================================================== */
 
-.intro {
-    display: table;
+.splitlayout {
+    position: relative;
+    overflow-x: hidden;
     width: 100%;
-    max-width: none;
-    height: 100vh;
-    margin: 0;
-    background: url(../img/bg-tools--small.jpg) no-repeat center center fixed;
-    background-color: $blue;
-    background-size: cover;
-    @include breakpoint(laptop) {
-        background-image: url(../img/bg-tools--large.jpg);
+    min-height: 100%;
+}
+
+.side {
+    text-align: center;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 50%;
+    height: 100%;
+
+    -webkit-backface-visibility: hidden;
+}
+
+.open-left .side,
+.open-right .side {
+    cursor: default;
+}
+
+
+.side-left .overlay {
+    background: rgba(0,0,0,0.7);
+}
+
+.side-right .overlay {
+    background: rgba(0,0,0,0.3);
+}
+
+.overlay-img,
+.overlay-color {
+    position: absolute;
+    z-index: 499;
+    top: 0;
+    left: 0;
+    width: 115%;
+    height: 115%;
+}
+
+.overlay-color {
+    z-index: 500;
+}
+
+.overlay-img {
+    position: relative;
+    top: -10%;
+}
+
+.side-left {
+    left: 0;
+    outline: $borderWidth solid $white; /* avoid gap */
+    .overlay-color {
+        background: rgba(#ED2124, 0.3);
     }
-    .hgroup {
-        text-align: center;
-        vertical-align: middle;
-        display: table-cell;
-        height: 100%;
-        padding: ($baseSpacing * 10) 0;
-        padding: 0% 10%;
-        @include breakpoint(tablet) {
-            padding: 0% 20%;
-        }
-        .introHeader {
-            @extend .yotta;
-            font-size: 1.6018rem;
-            line-height: 1.5;
-            color: $white;
-            @include breakpoint(tablet) {
-              font-size: 2.2807rem;
-              line-height: 1.3154;
-            }
-            .normal {
-                @include breakpoint(tablet) {
-                    font-size: 1.5rem;
-                }
-                font-size: 1.2rem;
-            }
-        }
+    .overlay-img {
+        left: -10%;
+        background: url(../img/fit-to-print.jpg) no-repeat center center;
+        background-size: cover;
+
+        filter: blur(15px);
     }
-    .downArrow {
-        @extend %transition-default;
-        font-size: $baseSpacing;
-        text-decoration: none;
-        margin-top: $baseSpacing;
-        padding: 0 0.6rem;
+    h1 {
         color: $white;
-        border: 0.2rem solid $white;
-        border-radius: 50%;
-        &:hover,
-        &:active,
-        &:focus {
-            opacity: 0.75;
-        }
     }
+}
+
+.side-right {
+    right: 0;
+    outline: $borderWidth solid $redSecondary; /* avoid gap */
+    .overlay-color {
+        background: rgba(#003177, 0.3);
+    }
+    .overlay-img {
+        background: url(../img/biz-caj.jpg) no-repeat center center;
+        background-size: cover;
+
+        filter: blur(15px);
+    }
+    h1 {
+        color: $white;
+    }
+}
+
+main,
+.navbar {
+    position: relative;
+    z-index: 900;
+    background: $white;
+}
+
+.navbar {
+    bottom: 20%;
+    padding-top: $baseSpacing;
+    padding-bottom: $baseSpacing;
+    background: $white;
+    &:before {
+        position: absolute;
+        z-index: -1;
+        top: -$baseSpacing;
+        left: -$baseSpacing * 2;
+        display: block;
+        width: 120%;
+        height: $baseSpacing * 3;
+        background: $white;
+        content: ' ';
+        content: '';
+        transform: rotate(-1deg);
+    }
+}
+
+.intro-content {
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    padding: 0 1em;
+    cursor: pointer;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+    h1 {
+        font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', 'sans serif';
+        font-size: 3rem;
+        margin: auto;
+        color: #FBE400;
+    }
+}
+
+.icn-vs {
+    position: fixed;
+    z-index: 499;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
 }

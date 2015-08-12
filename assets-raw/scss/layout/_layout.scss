@@ -11,12 +11,19 @@
 //
 // Styleguide 3.0
 
-body {
+html,
+body,
+.container  {
     margin: 0;
     padding: 0;
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 main {
@@ -57,94 +64,3 @@ main {
         }
     }
 }
-
-/*
-   #About
-   ========================================================================== */
-.about {
-    .about__wrapper {
-        @include container(50em);
-    }
-    .about__img {
-        @include span(full);
-        @include breakpoint(phablet) {
-            @include span(4);
-        }
-    }
-    .about__text {
-        @include span(full);
-        text-align: center;
-        @include breakpoint(phablet) {
-            @include span(8);
-            text-align: left;
-        }
-    }
-}
-
-/*
-   #Skills
-   ========================================================================== */
-
-.skill {
-    text-align: center;
-    @include breakpoint(tablet) {
-        @include span(4);
-    }
-}
-
-
-/*
-   #Projects
-   ========================================================================== */
-
-.section.projects {
-    padding-bottom: 0;
-}
-
-.project {
-    @include full;
-}
-
-.project__img {
-    @include breakpoint(phablet) {
-        @include span(4);
-    }
-}
-.project__info {
-    @include breakpoint(phablet) {
-        @include span(8);
-    }
-}
-
-
-/*
-   Design Examples
-   ========================================================================== */
-
-.examples {
-    .examples__wrapper {
-       @include span(12);
-    }
-    .examples__imgs {
-        @include breakpoint(tablet) {
-            li {
-                @include span(6 of $gallery_layout);
-            }
-        }
-    }
-}
-
-
-/*
-   Footer
-   ========================================================================== */
-
-.social-wrap {
-    @include span(full);
-}
-
-.thanks {
-    @include span(12)
-}
-
-
