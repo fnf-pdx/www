@@ -7,21 +7,21 @@
         "TableName": "waitingList",
         "AttributeDefinitions": [
           {
-            "AttributeName": "teamName",
-            "AttributeType": "S"
-          },
-          {
             "AttributeName": "show",
             "AttributeType": "S"
           },
           {
-            "AttributeName": "signUpDate",
+            "AttributeName": "date",
             "AttributeType": "N"
+          },
+          {
+            "AttributeName": "team",
+            "AttributeType": "S"
           }
         ],
         "KeySchema": [
           {
-            "AttributeName": "teamName",
+            "AttributeName": "team",
             "KeyType": "HASH"
           }
         ],
@@ -37,13 +37,12 @@
               "KeyType": "HASH"
             },
             {
-              "AttributeName": "signUpDate",
+              "AttributeName": "date",
               "KeyType": "RANGE"
             }
           ],
           "Projection" : {
-            "NonKeyAttributes" : ["teamName"],
-            "ProjectionType" : "INCLUDE"
+            "ProjectionType" : "KEYS_ONLY"
           },
           "ProvisionedThroughput" : {
             "ReadCapacityUnits" : "1",

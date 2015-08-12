@@ -15,7 +15,7 @@
                             <label for="team1">Team 1</label>
                             <select name="team1" class="form-control" id="team1">
                             {{#each teams }}
-                                <option value="{{ teamName.S }}">{{ teamName.S }}</option>
+                                <option value="{{ team.S }}">{{ team.S }}</option>
                             {{/each }}
                             </select>
                         </div>
@@ -25,7 +25,7 @@
                             <label for="team2">Team 2</label>
                             <select name="team2" class="form-control" id="team2">
                                 {{#each teams }}
-                                <option value="{{ teamName.S }}">{{ teamName.S }}</option>
+                                <option value="{{ team.S }}">{{ team.S }}</option>
                                 {{/each }}
                             </select>
                         </div>
