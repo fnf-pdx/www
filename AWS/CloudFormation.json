@@ -1,107 +1,84 @@
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Resources" : {
-    "teams" : {
-      "Type": "AWS::DynamoDB::Table",
-      "Properties": {
-        "TableName": "teams",
-        "AttributeDefinitions": [
-          {
-            "AttributeName": "name",
-            "AttributeType": "S"
-          }
-        ],
-        "KeySchema": [
-          {
-            "AttributeName": "name",
-            "KeyType": "HASH"
-          }
-        ],
-        "ProvisionedThroughput": {
-          "ReadCapacityUnits": "1",
-          "WriteCapacityUnits": "1"
-        }
-      }
-    },
     "waitingList" : {
       "Type": "AWS::DynamoDB::Table",
       "Properties": {
         "TableName": "waitingList",
         "AttributeDefinitions": [
           {
-            "AttributeName" : "showName",
-            "AttributeType" : "S"
+            "AttributeName": "teamName",
+            "AttributeType": "S"
           },
           {
-            "AttributeName" : "signUpDate",
-            "AttributeType" : "N"
-          }
-        ],
-        "KeySchema" : [
-          {
-            "AttributeName" : "showName",
-            "KeyType" : "HASH"
+            "AttributeName": "show",
+            "AttributeType": "S"
           },
           {
-            "AttributeName" : "signUpDate",
-            "KeyType" : "RANGE"
+            "AttributeName": "signUpDate",
+            "AttributeType": "N"
           }
         ],
-        "ProvisionedThroughput" : {
-          "ReadCapacityUnits" : "1",
-          "WriteCapacityUnits" : "1"
-        }
-      },
-      "shows" : {
-        "Type": "AWS::DynamoDB::Table",
-        "Properties": {
-          "TableName": "shows",
-          "AttributeDefinitions": [
-            {
-              "AttributeName": "name",
-              "AttributeType": "S"
-            }
-          ],
-          "KeySchema": [
-            {
-              "AttributeName": "name",
-              "KeyType": "HASH"
-            }
-          ],
-          "ProvisionedThroughput": {
-            "ReadCapacityUnits": "1",
-            "WriteCapacityUnits": "1"
+        "KeySchema": [
+          {
+            "AttributeName": "teamName",
+            "KeyType": "HASH"
           }
-        }
-      },
-      "events" : {
-        "Type": "AWS::DynamoDB::Table",
-        "Properties": {
-          "TableName": "events",
-          "AttributeDefinitions": [
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": "1",
+          "WriteCapacityUnits": "1"
+        },
+        "GlobalSecondaryIndexes" : [{
+          "IndexName" : "getByShow",
+          "KeySchema" : [
             {
-              "AttributeName": "showName",
-              "AttributeType": "S"
-            },
-            {
-              "AttributeName": "date",
-              "AttributeType": "N"
-            }
-          ],
-          "KeySchema": [
-            {
-              "AttributeName": "showName",
+              "AttributeName": "show",
               "KeyType": "HASH"
             },
             {
-              "AttributeName": "date",
+              "AttributeName": "signUpDate",
               "KeyType": "RANGE"
             }
           ],
-          "ProvisionedThroughput": {
-            "ReadCapacityUnits": "1",
-            "WriteCapacityUnits": "1"
+          "Projection" : {
+            "NonKeyAttributes" : ["teamName"],
+            "ProjectionType" : "INCLUDE"
+          },
+          "ProvisionedThroughput" : {
+            "ReadCapacityUnits" : "1",
+            "WriteCapacityUnits" : "1"
           }
+        }]
+      }
+    },
+    "events" : {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "TableName": "events",
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "yearMonth",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "day",
+            "AttributeType": "N"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "yearMonth",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "day",
+            "KeyType": "RANGE"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": "1",
+          "WriteCapacityUnits": "1"
         }
       }
     }

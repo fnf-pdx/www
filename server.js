@@ -9,6 +9,11 @@ var db = new AWS.DynamoDB();
 var signUp = require('./lib/handlers/signUp')(db);
 var waitingList = require('./lib/handlers/waitingList')(db);
 var schedule = require('./lib/handlers/schedule')(db);
+var calendar = require('./lib/handlers/calendar')(db);
+
+var version = require('./package').version;
+
+var viewsBasePath = 'views-raw';
 
 var server = new Hapi.Server();
 server.connection({ port: 3000 });
@@ -19,10 +24,18 @@ server.views({
     html: require('handlebars')
   },
   layout: true,
-  path: 'views',
-  layoutPath: 'views/layout',
-  helpersPath: 'lib/helpers',
-  partialsPath: 'views/partials'
+  path: viewsBasePath,
+  layoutPath: viewsBasePath + '/layout',
+  helpersPath:  'lib/helpers',
+  partialsPath: viewsBasePath + '/partials'
+});
+
+server.route({
+  method: 'GET',
+  path: '/healthcheck',
+  handler: function(request, reply) {
+    reply({ status: 'ok', version: version });
+  }
 });
 
 server.route({
@@ -83,14 +96,20 @@ server.route({
 
 server.route({
   method: 'GET',
-  path: '/schedule/{showName}',
+  path: '/schedule/tnt',
   handler: schedule.form
 });
 
 server.route({
   method: 'POST',
-  path: '/schedule/{showName}',
+  path: '/schedule/tnt',
   handler: schedule.save
+});
+
+server.route({
+  method: ['GET', 'POST'],
+  path: '/calendar',
+  handler: calendar.render
 });
 
 server.register({
