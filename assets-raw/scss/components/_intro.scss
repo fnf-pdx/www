@@ -12,11 +12,10 @@
 .side {
     text-align: center;
     position: fixed;
-    z-index: 100;
+    z-index: $zindex-side;
     top: 0;
     width: 50%;
     height: 100%;
-
     -webkit-backface-visibility: hidden;
 }
 
@@ -25,19 +24,10 @@
     cursor: default;
 }
 
-
-.side-left .overlay {
-    background: rgba(0,0,0,0.7);
-}
-
-.side-right .overlay {
-    background: rgba(0,0,0,0.3);
-}
-
 .overlay-img,
 .overlay-color {
     position: absolute;
-    z-index: 499;
+    z-index: $zindex-overlay;
     top: 0;
     left: 0;
     width: 115%;
@@ -45,7 +35,7 @@
 }
 
 .overlay-color {
-    z-index: 500;
+    z-index: $zindex-overlay-color;
 }
 
 .overlay-img {
@@ -55,15 +45,14 @@
 
 .side-left {
     left: 0;
-    outline: $borderWidth solid $white; /* avoid gap */
+    outline: ($borderWidth * 2) solid $yellow; /* avoid gap */
     .overlay-color {
-        background: rgba(#ED2124, 0.3);
+        background: rgba(#600012, 0.3);
     }
     .overlay-img {
         left: -10%;
         background: url(../img/fit-to-print.jpg) no-repeat center center;
         background-size: cover;
-
         filter: blur(15px);
     }
     h1 {
@@ -73,14 +62,13 @@
 
 .side-right {
     right: 0;
-    outline: $borderWidth solid $redSecondary; /* avoid gap */
+    outline: ($borderWidth * 2) solid $yellow; /* avoid gap */
     .overlay-color {
-        background: rgba(#003177, 0.3);
+        background: rgba(#003356, 0.5);
     }
     .overlay-img {
         background: url(../img/biz-caj.jpg) no-repeat center center;
         background-size: cover;
-
         filter: blur(15px);
     }
     h1 {
@@ -88,56 +76,29 @@
     }
 }
 
-main,
-.navbar {
-    position: relative;
-    z-index: 900;
-    background: $white;
-}
-
-.navbar {
-    bottom: 20%;
-    padding-top: $baseSpacing;
-    padding-bottom: $baseSpacing;
-    background: $white;
-    &:before {
-        position: absolute;
-        z-index: -1;
-        top: -$baseSpacing;
-        left: -$baseSpacing * 2;
-        display: block;
-        width: 120%;
-        height: $baseSpacing * 3;
-        background: $white;
-        content: ' ';
-        content: '';
-        transform: rotate(-1deg);
-    }
-}
-
 .intro-content {
     position: absolute;
-    z-index: 1000;
+    z-index: $zindex-content;
     top: 50%;
     left: 50%;
     width: 50%;
-    padding: 0 1em;
+    padding: 0 $baseSpacing;
     cursor: pointer;
-    -webkit-transform: translateY(-50%) translateX(-50%);
-    transform: translateY(-50%) translateX(-50%);
+    @include transform(translateY(-50%) translateX(-50%));
+
     h1 {
-        font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', 'sans serif';
-        font-size: 3rem;
+        font-size: 4rem;
+        line-height: 1.2;
         margin: auto;
-        color: #FBE400;
+        color: $yellow;
+        text-transform: uppercase;
     }
 }
 
 .icn-vs {
     position: fixed;
-    z-index: 499;
+    z-index: $zindex-overlay;
     top: 50%;
     left: 50%;
-    -webkit-transform: translateY(-50%) translateX(-50%);
-    transform: translateY(-50%) translateX(-50%);
+    @include transform(translateY(-50%) translateX(-50%));
 }

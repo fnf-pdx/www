@@ -2,52 +2,29 @@
    About section
    ========================================================================== */
 
-.about {
-    background: $grayLight;
-    border-bottom: .1rem solid darken($grayLight, 2.5%);
-}
-
-.about__wrapper {
-    @extend .push-double;
-}
-
-.about__text h2 {
-    @extend .yotta;
-    margin-top: 0;
-}
-
-.about__img {
-    margin: 0;
-    text-align: center;
-
-    img {
-        max-width: 250px;
-        border-radius: 50%;
-        border: .2rem solid $white;
-
-        @include breakpoint(phablet) {
-            max-width: inherit;
-        }
-    }
-}
-
-/*
-   Skills
-   ========================================================================== */
-
-.skill-wrap {
-    background: lighten($grayLight, 3%);
-    padding: ($baseSpacing * .5) ($baseSpacing * .25);
+.intro-table--wrap {
+    margin-top: $baseSpacing;
+    background: $redSecondary;
+    color: $white;
     margin-bottom: $baseSpacing;
-    height: 100%;
+    @extend .clearfix;
 
-    @include breakpoint(tablet) {
-        padding: ($baseSpacing * .25) ($baseSpacing * .5);
+    h5 {
+        color: $white;
+        text-transform: uppercase;
     }
+}
 
-    .icn {
-        width: 100%;
-        margin-top: $baseSpacing;
+.tnt .intro-table--wrap  {
+    background: $blueSecondary;
+}
+
+.schedule-row {
+    border-bottom: rgba($white, .4) solid $borderWidth;
+    padding-top: $baseSpacing * .5;
+    padding-bottom: $baseSpacing * .5;
+
+    &:last-child {
+        border: none;
     }
-
 }

@@ -64,3 +64,33 @@ main {
         }
     }
 }
+
+
+
+/*
+   #Intro Blocks
+   ========================================================================== */
+
+.intro-table {
+    @include span(12);
+
+    @include breakpoint(phablet) {
+        @include span(6);
+    }
+}
+
+.schedule-row {
+    @include span(12);
+}
+
+.schedule-row--left,
+.schedule-row--right {
+    @include span(6 nest);
+}
+
+.schedule-title {
+    @include span(6);
+}
+
+
+

@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+a {
+    color: $blueSecondary;
+    outline: none;
+    text-decoration: none;
+
+    &:visited {
+        color: $blueSecondary;
+    }
+
+    &:hover,
+    &:active {
+        color: $blue;
+    }
+}

@@ -2,109 +2,44 @@
    Main Navigation
    ========================================================================== */
 
-.mainNav {
-    position: fixed;
-    z-index: 5;
-    top: 0;
-    width: 100%;
+main,
+.navbar {
+    position: relative;
+    z-index: $zindex-overlay;
+    background: $yellow;
 }
 
 .navbar {
-    transition: all 0.5s ease-in-out;
-    .logo,
-    .nav-item {
-        text-decoration: none;
-        text-transform: uppercase;
+    bottom: 20%;
+    padding-top: $baseSpacing;
+    padding-bottom: $baseSpacing;
+    background: $headerColor;
+    border-bottom: rgba($gray, .1) solid $borderWidth;
+    &:before {
+        position: absolute;
+        z-index: -1;
+        top: -$baseSpacing;
+        left: -$baseSpacing * 2;
         display: block;
-        color: $white;
-        transition: all 0.5s ease-in-out;
+        width: 120%;
+        height: $baseSpacing * 3;
+        background: $headerColor;
+        content: '';
+        @include transform(rotate(-1deg));
     }
-    .nav-item {
-        padding: ($baseSpacing * 0.5) 0;
-        @include breakpoint(phablet) {
-            padding: ($baseSpacing * 2) 0;
-        }
-    }
-    .logo {
-        text-align: center;
-        padding-top: $baseSpacing * 0.5;
-        @extend %transition-default;
-        &:hover,
-        &:active,
-        &:focus {
-            opacity: .75;
-        }
-        @include breakpoint(phablet) {
-            text-align: left;
-            padding-top: $baseSpacing * 1.5;
-        }
-        .icn-logo {
-            width: 30px;
-            height: 30px;
-            fill: $white;
-            stroke: $white;
-            @include breakpoint(phablet) {
-                width: 50px;
-                height: 50px;
-            }
-        }
-    }
-    > ul li {
+    > ul {
         a {
             text-align: center;
-            &:hover {
-                background: rgba(255, 255, 255, 0.25);
-            }
+            display: block;
+            color: $colorText;
+            padding-top: .5rem;
+            padding-bottom: .5rem;
         }
+    }
+    .brand h1 {
+        margin: 0;
+        text-transform: uppercase;
+        color: $colorText;
     }
 }
 
-/*
-   Header animation on scroll
-   ========================================================================== */
-
-.js-navbar.scrollNav {
-    border-bottom: 0.2rem solid $blue;
-    background: $white;
-    .nav-item {
-        padding: ($baseSpacing * 0.5) 0;
-        color: $blue;
-
-        &:hover {
-            background: $blue;
-            color: $white;
-        }
-    }
-    .brand {
-        position: absolute;
-        top: -10rem;
-        @include breakpoint(phablet) {
-            position: inherit;
-        }
-        .logo {
-            @include breakpoint(phablet) {
-                padding-top: $baseSpacing * .25;
-            }
-        }
-        .icn-logo {
-            fill: $blue;
-            stroke: $blue;
-            @include breakpoint(phablet) {
-                width: 35px;
-                height: 35px;
-            }
-            @include breakpoint(tablet) {
-                width: 38px;
-                height: 38px;
-            }
-            @include breakpoint(desktop) {
-                width: 42px;
-                height: 42px;
-            }
-            @include breakpoint(desktop) {
-                width: 44px;
-                height: 44px;
-            }
-        }
-    }
-}
