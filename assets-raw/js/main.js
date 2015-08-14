@@ -1,117 +1,233 @@
-function onScroll_fn() {
-    var siteWindow = $( window ),
-        siteHeader = $( ".js-navbar" )
+jQuery(document).ready(function($){
+    //set your google maps parameters
+    var latitude = 45.560971,
+        longitude = -122.661776,
+        map_zoom = 14;
 
-    siteWindow.scroll(function() {
-        if ( siteWindow.scrollTop() == 0) {
-            siteHeader.removeClass( "scrollNav" );
-        } else {
-            siteHeader.addClass( "scrollNav");
+    //google map custom marker icon - .png fallback for IE11
+    var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+    var marker_url = ( is_internetExplorer11 ) ? 'assets/development/assets/img/cd-icon-location.png' : 'assets/development/assets/img/cd-icon-location.svg';
+
+    //define the basic color of your map, plus a value for saturation and brightness
+    var main_color = '#2d313f',
+        saturation_value= -20,
+        brightness_value= 5;
+
+    //we define here the style of the map
+    var style= [
+        {
+            //set saturation for the labels on the map
+            elementType: "labels",
+            stylers: [
+                {saturation: saturation_value}
+            ]
+        },
+        {   //poi stands for point of interest - don't show these lables on the map
+            featureType: "poi",
+            elementType: "labels",
+            stylers: [
+                {visibility: "off"}
+            ]
+        },
+        {
+            //don't show highways lables on the map
+            featureType: 'road.highway',
+            elementType: 'labels',
+            stylers: [
+                {visibility: "off"}
+            ]
+        },
+        {
+            //don't show local road lables on the map
+            featureType: "road.local",
+            elementType: "labels.icon",
+            stylers: [
+                {visibility: "off"}
+            ]
+        },
+        {
+            //don't show arterial road lables on the map
+            featureType: "road.arterial",
+            elementType: "labels.icon",
+            stylers: [
+                {visibility: "off"}
+            ]
+        },
+        {
+            //don't show road lables on the map
+            featureType: "road",
+            elementType: "geometry.stroke",
+            stylers: [
+                {visibility: "off"}
+            ]
+        },
+        //style different elements on the map
+        {
+            featureType: "transit",
+            elementType: "geometry.fill",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
+        },
+        {
+            featureType: "poi",
+            elementType: "geometry.fill",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
+        },
+        {
+            featureType: "poi.government",
+            elementType: "geometry.fill",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
+        },
+        {
+            featureType: "poi.sport_complex",
+            elementType: "geometry.fill",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
+        },
+        {
+            featureType: "poi.attraction",
+            elementType: "geometry.fill",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
+        },
+        {
+            featureType: "poi.business",
+            elementType: "geometry.fill",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
+        },
+        {
+            featureType: "transit",
+            elementType: "geometry.fill",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
+        },
+        {
+            featureType: "transit.station",
+            elementType: "geometry.fill",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
+        },
+        {
+            featureType: "landscape",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
+
+        },
+        {
+            featureType: "road",
+            elementType: "geometry.fill",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
+        },
+        {
+            featureType: "road.highway",
+            elementType: "geometry.fill",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
+        },
+        {
+            featureType: "water",
+            elementType: "geometry",
+            stylers: [
+                { hue: main_color },
+                { visibility: "on" },
+                { lightness: brightness_value },
+                { saturation: saturation_value }
+            ]
         }
-    });
-}
+    ];
 
-/* Thanks to CSS Tricks for pointing out this bit of jQuery
-http://css-tricks.com/equal-height-blocks-in-rows/
-It's been modified into a function called at page load and then each time the page is resized. One large modification was to remove the set height before each new calculation. */
-
-equalheight = function(container){
-
-var currentTallest = 0,
-     currentRowStart = 0,
-     rowDivs = new Array(),
-     $el,
-     topPosition = 0;
- $(container).each(function() {
-
-   $el = $(this);
-   $($el).height('auto')
-   topPostion = $el.position().top;
-
-   if (currentRowStart != topPostion) {
-     for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-       rowDivs[currentDiv].height(currentTallest);
-     }
-     rowDivs.length = 0; // empty the array
-     currentRowStart = topPostion;
-     currentTallest = $el.height();
-     rowDivs.push($el);
-   } else {
-     rowDivs.push($el);
-     currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
-  }
-   for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-     rowDivs[currentDiv].height(currentTallest);
-   }
- });
-}
-
-$(window).load(function() {
-  equalheight('.skill');
-});
-
-$(window).resize(function(){
-  equalheight('.skill');
-});
-
-
-$( function() {
-    // init controller
-    var controller = new ScrollMagic.Controller();
-
-    // change behaviour of controller to animate scroll instead of jump
-    controller.scrollTo(function (newpos) {
-        TweenMax.to(window, 0.5, {scrollTo: {y: newpos}});
+    //set google map options
+    var map_options = {
+        center: new google.maps.LatLng(latitude, longitude),
+        zoom: map_zoom,
+        panControl: false,
+        zoomControl: false,
+        mapTypeControl: false,
+        streetViewControl: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false,
+        styles: style,
+    }
+    //inizialize the map
+    var map = new google.maps.Map(document.getElementById('google-container'), map_options);
+    //add a custom marker to the map
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(latitude, longitude),
+        map: map,
+        visible: true,
+        icon: marker_url,
     });
 
-    //  bind scroll to anchor links
-    $(document).on("click", "a[href^='#']", function (e) {
-        var id = $(this).attr("href");
-        if ($(id).length > 0) {
-            e.preventDefault();
+    //add custom buttons for the zoom-in/zoom-out on the map
+    function CustomZoomControl(controlDiv, map) {
+        //grap the zoom elements from the DOM and insert them in the map
+        var controlUIzoomIn= document.getElementById('cd-zoom-in'),
+            controlUIzoomOut= document.getElementById('cd-zoom-out');
+        controlDiv.appendChild(controlUIzoomIn);
+        controlDiv.appendChild(controlUIzoomOut);
 
-            // trigger scroll
-            controller.scrollTo(id);
+        // Setup the click event listeners and zoom-in or out according to the clicked element
+        google.maps.event.addDomListener(controlUIzoomIn, 'click', function() {
+            map.setZoom(map.getZoom()+1)
+        });
+        google.maps.event.addDomListener(controlUIzoomOut, 'click', function() {
+            map.setZoom(map.getZoom()-1)
+        });
+    }
 
-                // if supported by the browser we can even update the URL.
-            if (window.history && window.history.pushState) {
-                history.pushState("", document.title, id);
-            }
-        }
-    });
+    var zoomControlDiv = document.createElement('div');
+    var zoomControl = new CustomZoomControl(zoomControlDiv, map);
 
-    var skillTween1 = TweenMax.staggerFromTo('#animation-1', 1,
-        {opacity: 0, scale: 0},
-        {delay: 0, opacity: 1, scale: 1, ease: Back.easeOut});
-
-    var skillTween2 = TweenMax.staggerFromTo('#animation-2', 1,
-        {opacity: 0, scale: 0},
-        {delay: .2, opacity: 1, scale: 1, ease: Back.easeOut});
-
-    var skillTween3 = TweenMax.staggerFromTo('#animation-3', 1,
-        {opacity: 0, scale: 0},
-        {delay: .4, opacity: 1, scale: 1, ease: Back.easeOut});
-
-
-    // build scene
-    var scene = new ScrollMagic.Scene({triggerElement: ".js-triggerSkillAnimation"})
-        .setTween(skillTween1)
-        .addTo(controller);
-
-    var scene = new ScrollMagic.Scene({triggerElement: ".js-triggerSkillAnimation"})
-        .setTween(skillTween2)
-        .addTo(controller);
-
-    var scene = new ScrollMagic.Scene({triggerElement: ".js-triggerSkillAnimation"})
-        .setTween(skillTween3)
-        .addTo(controller);
-
-
-    onScroll_fn();
-
+    //insert the zoom div on the top left of the map
+    map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
 });
-
-
-
 
 

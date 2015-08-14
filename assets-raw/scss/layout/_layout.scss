@@ -31,7 +31,7 @@ main {
 }
 
 .section {
-    @extend .pad-bottom-double;
+    padding-top: $baseSpacing;
     @include full;
     @extend .clearfix;
     position: relative;
@@ -70,6 +70,14 @@ main {
 /*
    #Intro Blocks
    ========================================================================== */
+
+.fnf-info {
+    @include span(6);
+}
+
+.signup {
+    @include span(6);
+}
 
 .intro-table {
     @include span(12);

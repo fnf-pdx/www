@@ -82,13 +82,14 @@ $grayLight: #eeeeee;
 $grayLightest: lighten($grayLight, 1%);
 $grayDark: #404040;
 
-$colorText: $grayDark;
+$colorText: $white;
 $colorHighlight: $blue;
 $colorWarning: $yellowSecondary;
 $colorMuted: $gray;
 $colorDanger: $red;
 
-$headerColor: $yellow;
+$headerColor: $white;
+$bckgColor: $yellow;
 
 // Defining font family
 $fontDefault: 'Cantarell', Helvetica, Arial, sans-serif;
@@ -101,6 +102,14 @@ $fontHeaderWeight: 700;
 
 // Defining baseline line height
 $lineHeight: 1.5;
+
+// Buttons
+$buttonTextColor: $white;
+$buttonTextColor--hover: $yellow;
+$buttonBorderColor: $white;
+$buttonColor: none;
+$buttonColor--hover: $white;
+$buttonBorderWidth: .2rem;
 
 // Defining animation easings
 $animationEasing: cubic-bezier(0.455, 0.030, 0.515, 0.955) !default;

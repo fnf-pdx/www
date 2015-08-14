@@ -6,16 +6,20 @@ main,
 .navbar {
     position: relative;
     z-index: $zindex-overlay;
-    background: $yellow;
+    background: $bckgColor;
 }
+
+
 
 .navbar {
     bottom: 20%;
     padding-top: $baseSpacing;
     padding-bottom: $baseSpacing;
-    background: $headerColor;
-    border-bottom: rgba($gray, .1) solid $borderWidth;
+    border-bottom: rgba($white, 0.2) solid $borderWidth;
+    background: $bckgColor;
     &:before {
+        @include transform(rotate(-1deg));
+        border-top: rgba($white, 0.2) solid $borderWidth;
         position: absolute;
         z-index: -1;
         top: -$baseSpacing;
@@ -23,23 +27,26 @@ main,
         display: block;
         width: 120%;
         height: $baseSpacing * 3;
-        background: $headerColor;
+        background: $bckgColor;
         content: '';
-        @include transform(rotate(-1deg));
     }
     > ul {
         a {
             text-align: center;
             display: block;
-            color: $colorText;
-            padding-top: .5rem;
-            padding-bottom: .5rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            color: $white;
+            &:hover,
+            &:active {
+                border-bottom: $borderWidth solid $white;
+            }
         }
     }
     .brand h1 {
-        margin: 0;
         text-transform: uppercase;
-        color: $colorText;
+        margin: 0;
+        color: $white;
     }
 }
 

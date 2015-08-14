@@ -47,7 +47,7 @@
     left: 0;
     outline: ($borderWidth * 2) solid $yellow; /* avoid gap */
     .overlay-color {
-        background: rgba(#600012, 0.3);
+        background: rgba($red, 0.3);
     }
     .overlay-img {
         left: -10%;
@@ -64,7 +64,7 @@
     right: 0;
     outline: ($borderWidth * 2) solid $yellow; /* avoid gap */
     .overlay-color {
-        background: rgba(#003356, 0.5);
+        background: rgba($blue, 0.5);
     }
     .overlay-img {
         background: url(../img/biz-caj.jpg) no-repeat center center;
@@ -77,28 +77,37 @@
 }
 
 .intro-content {
+    @include transform(translateY(-50%) translateX(-50%));
     position: absolute;
     z-index: $zindex-content;
     top: 50%;
     left: 50%;
     width: 50%;
-    padding: 0 $baseSpacing;
     cursor: pointer;
-    @include transform(translateY(-50%) translateX(-50%));
-
-    h1 {
+    @include breakpoint(phablet) {
         font-size: 4rem;
+        width: 75%;
+        padding: 0 $baseSpacing;
+    }
+    h1 {
         line-height: 1.2;
+        text-transform: uppercase;
         margin: auto;
         color: $yellow;
-        text-transform: uppercase;
+        @include breakpoint(phablet) {
+            font-size: 4rem;
+        }
     }
 }
 
 .icn-vs {
+    @include transform(translateY(-50%) translateX(-50%));
     position: fixed;
     z-index: $zindex-overlay;
     top: 50%;
     left: 50%;
-    @include transform(translateY(-50%) translateX(-50%));
+    width: $baseSpacing * 3;
+    @include breakpoint(phablet) {
+        width: inherit;
+    }
 }
