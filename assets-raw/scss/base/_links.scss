@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+a {
+    @extend %transition-default;
+    text-decoration: none;
+    color: $blueSecondary;
+    outline: none;
+    &:visited {
+        color: inherit;
+    }
+    &:hover,
+    &:active {
+        color: $blue;
+    }
+}

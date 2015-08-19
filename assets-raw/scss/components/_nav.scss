@@ -2,109 +2,48 @@
    Main Navigation
    ========================================================================== */
 
-.mainNav {
-    position: fixed;
-    z-index: 5;
-    top: 0;
-    width: 100%;
+main,
+.navbar {
+    position: relative;
+    z-index: $zindex-overlay;
+    background: $bckgColor;
 }
 
 .navbar {
-    transition: all 0.5s ease-in-out;
-    .logo,
-    .nav-item {
-        text-decoration: none;
-        text-transform: uppercase;
+    bottom: 20%;
+    padding-top: $baseSpacing;
+    padding-bottom: $baseSpacing;
+    border-bottom: rgba($white, 0.2) solid $borderWidth;
+    background: $bckgColor;
+    &:before {
+        @include transform(rotate(-1deg));
+        border-top: rgba($white, 0.2) solid $borderWidth;
+        position: absolute;
+        z-index: -1;
+        top: -$baseSpacing;
+        left: -$baseSpacing * 2;
         display: block;
-        color: $white;
-        transition: all 0.5s ease-in-out;
+        width: 120%;
+        height: $baseSpacing * 3;
+        background: $bckgColor;
+        content: '';
     }
-    .nav-item {
-        padding: ($baseSpacing * 0.5) 0;
-        @include breakpoint(phablet) {
-            padding: ($baseSpacing * 2) 0;
-        }
-    }
-    .logo {
-        text-align: center;
-        padding-top: $baseSpacing * 0.5;
-        @extend %transition-default;
-        &:hover,
-        &:active,
-        &:focus {
-            opacity: .75;
-        }
-        @include breakpoint(phablet) {
-            text-align: left;
-            padding-top: $baseSpacing * 1.5;
-        }
-        .icn-logo {
-            width: 30px;
-            height: 30px;
-            fill: $white;
-            stroke: $white;
-            @include breakpoint(phablet) {
-                width: 50px;
-                height: 50px;
-            }
-        }
-    }
-    > ul li {
+    > ul {
         a {
             text-align: center;
-            &:hover {
-                background: rgba(255, 255, 255, 0.25);
+            display: block;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            color: $colorText;
+            &:hover,
+            &:active {
+                border-bottom: $borderWidth solid $white;
             }
         }
+    }
+    .brand h1 {
+        text-transform: uppercase;
+        margin: 0;
     }
 }
 
-/*
-   Header animation on scroll
-   ========================================================================== */
-
-.js-navbar.scrollNav {
-    border-bottom: 0.2rem solid $blue;
-    background: $white;
-    .nav-item {
-        padding: ($baseSpacing * 0.5) 0;
-        color: $blue;
-
-        &:hover {
-            background: $blue;
-            color: $white;
-        }
-    }
-    .brand {
-        position: absolute;
-        top: -10rem;
-        @include breakpoint(phablet) {
-            position: inherit;
-        }
-        .logo {
-            @include breakpoint(phablet) {
-                padding-top: $baseSpacing * .25;
-            }
-        }
-        .icn-logo {
-            fill: $blue;
-            stroke: $blue;
-            @include breakpoint(phablet) {
-                width: 35px;
-                height: 35px;
-            }
-            @include breakpoint(tablet) {
-                width: 38px;
-                height: 38px;
-            }
-            @include breakpoint(desktop) {
-                width: 42px;
-                height: 42px;
-            }
-            @include breakpoint(desktop) {
-                width: 44px;
-                height: 44px;
-            }
-        }
-    }
-}

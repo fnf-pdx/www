@@ -53,7 +53,7 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: $fontHeader;
   font-weight: $fontHeaderWeight;
-  color: $blue
+  color: $headerColor;
 }
 
 .yotta,
@@ -138,7 +138,7 @@ p {
 // Styleguide 2.3
 
 small, .milli {
-  font-size: 0.8889rem;
+  font-size: 0.5rem;
   line-height: 1.6875;
 }
 
