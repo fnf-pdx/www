@@ -3,14 +3,13 @@
    ========================================================================== */
 
 a {
+    @extend %transition-default;
+    text-decoration: none;
     color: $blueSecondary;
     outline: none;
-    text-decoration: none;
-
     &:visited {
         color: inherit;
     }
-
     &:hover,
     &:active {
         color: $blue;

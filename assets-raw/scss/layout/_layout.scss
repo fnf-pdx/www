@@ -31,12 +31,21 @@ main {
 }
 
 .section {
-    padding-top: $baseSpacing;
     @include full;
     @extend .clearfix;
     position: relative;
     clear: both;
+
+    &.about {
+        padding-top: $baseSpacing * 3;
+        padding-bottom: $baseSpacing * 3;
+    }
+
+    &.schedule {
+        padding-bottom: $baseSpacing * 4;
+    }
 }
+
 
 /*
    #Nav
@@ -68,18 +77,23 @@ main {
 
 
 /*
-   #Intro Blocks
+   About
+   ========================================================================== */
+.about-info,
+.about-signup {
+    @include span(12);
+    @include breakpoint(phablet) {
+        @include span(6);
+    }
+}
+
+
+
+/*
+   #Schedule Blocks
    ========================================================================== */
 
-.fnf-info {
-    @include span(6);
-}
-
-.signup {
-    @include span(6);
-}
-
-.intro-table {
+.schedule-table {
     @include span(12);
 
     @include breakpoint(phablet) {
@@ -97,8 +111,19 @@ main {
 }
 
 .schedule-title {
-    @include span(6);
+    @include span(12);
 }
+
+
+/*
+   #Maps
+   ========================================================================== */
+
+#cd-google-map {
+    @include span(12);
+}
+
+
 
 
 

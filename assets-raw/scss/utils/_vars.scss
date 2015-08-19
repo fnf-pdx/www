@@ -72,7 +72,7 @@ $blue: #003356;
 $blueSecondary: lighten($blue, 40%);
 $green: #0f9d58;
 $greenSecondary: lighten($green, 30%);
-$red: #600012;
+$red: #6c1400;
 $redSecondary: lighten($red, 30%);
 $yellow: #f4b400;
 $yellowSecondary: lighten($yellow, 20%);
@@ -81,14 +81,15 @@ $gray: #737373;
 $grayLight: #eeeeee;
 $grayLightest: lighten($grayLight, 1%);
 $grayDark: #404040;
+$grayDarkest: #333333;
 
-$colorText: $white;
 $colorHighlight: $blue;
 $colorWarning: $yellowSecondary;
 $colorMuted: $gray;
 $colorDanger: $red;
 
-$headerColor: $white;
+$colorText: black;
+$headerColor: black;
 $bckgColor: $yellow;
 
 // Defining font family
@@ -104,11 +105,11 @@ $fontHeaderWeight: 700;
 $lineHeight: 1.5;
 
 // Buttons
-$buttonTextColor: $white;
+$buttonTextColor: $colorText;
 $buttonTextColor--hover: $yellow;
-$buttonBorderColor: $white;
+$buttonBorderColor: $colorText;
 $buttonColor: none;
-$buttonColor--hover: $white;
+$buttonColor--hover: $colorText;
 $buttonBorderWidth: .2rem;
 
 // Defining animation easings
@@ -132,3 +133,4 @@ $zindex-side: $zindex1;
 $zindex-overlay: $zindex2;
 $zindex-overlay-color: $zindex3;
 $zindex-content: $zindex4;
+$zindex-footer: $zindex4;

@@ -9,8 +9,6 @@ main,
     background: $bckgColor;
 }
 
-
-
 .navbar {
     bottom: 20%;
     padding-top: $baseSpacing;
@@ -36,7 +34,7 @@ main,
             display: block;
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
-            color: $white;
+            color: $colorText;
             &:hover,
             &:active {
                 border-bottom: $borderWidth solid $white;
@@ -46,7 +44,6 @@ main,
     .brand h1 {
         text-transform: uppercase;
         margin: 0;
-        color: $white;
     }
 }
 
