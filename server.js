@@ -4,12 +4,15 @@ var Good = require('good');
 var AWS = require('aws-sdk');
 AWS.config.region = 'us-west-2';
 
-var db = new AWS.DynamoDB();
+var ddb = new AWS.DynamoDB();
 
-var signUp = require('./lib/handlers/signUp')(db);
-var waitingList = require('./lib/handlers/waitingList')(db);
-var schedule = require('./lib/handlers/schedule')(db);
-var calendar = require('./lib/handlers/calendar')(db);
+var waitingList = require('./lib/data/waitingList')(ddb);
+var schedule = require('./lib/data/schedule')(ddb);
+
+var tntSignUp = require('./lib/handlers/signUp')(waitingList);
+var tntWaitingList = require('./lib/handlers/waitingList')(waitingList);
+var scheduleHandler  = require('./lib/handlers/schedule')(waitingList, schedule);
+var calendar = require('./lib/handlers/calendar')(schedule);
 
 var version = require('./package').version;
 
@@ -77,38 +80,30 @@ server.route({
 server.route({
   method: 'POST',
   path: '/sign-up',
-  handler: signUp.save
+  handler: tntSignUp.save
 });
 
 server.route({
   method: 'GET',
   path: '/waiting-list',
-  handler: waitingList.list
-});
-
-server.route({
-  method: 'GET',
-  path: '/schedule',
-  handler: {
-    view: 'scheduleLanding'
-  }
+  handler: tntWaitingList.list
 });
 
 server.route({
   method: 'GET',
   path: '/schedule/tnt',
-  handler: schedule.form
+  handler: scheduleHandler.form
 });
 
 server.route({
   method: 'POST',
   path: '/schedule/tnt',
-  handler: schedule.save
+  handler: scheduleHandler.save
 });
 
 server.route({
   method: ['GET', 'POST'],
-  path: '/calendar',
+  path: '/calendar/{month}',
   handler: calendar.render
 });
 

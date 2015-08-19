@@ -7,15 +7,15 @@
         "TableName": "waitingList",
         "AttributeDefinitions": [
           {
+            "AttributeName": "team",
+            "AttributeType": "S"
+          },
+          {
             "AttributeName": "show",
             "AttributeType": "S"
           },
           {
             "AttributeName": "date",
-            "AttributeType": "N"
-          },
-          {
-            "AttributeName": "team",
             "AttributeType": "S"
           }
         ],
@@ -57,21 +57,21 @@
         "TableName": "events",
         "AttributeDefinitions": [
           {
-            "AttributeName": "yearMonth",
+            "AttributeName": "show",
             "AttributeType": "S"
           },
           {
-            "AttributeName": "day",
-            "AttributeType": "N"
+            "AttributeName": "date",
+            "AttributeType": "S"
           }
         ],
         "KeySchema": [
           {
-            "AttributeName": "yearMonth",
+            "AttributeName": "show",
             "KeyType": "HASH"
           },
           {
-            "AttributeName": "day",
+            "AttributeName": "date",
             "KeyType": "RANGE"
           }
         ],

@@ -1,39 +1,34 @@
 <div class="row">
     <div class="col-xs-12">
-        <div class="col-xs-4">
-            {{> scheduleShows }}
-        </div>
-        <div class="col-xs-8">
-            <form action="/schedule/tnt" method="post">
-                <div class="form-group">
-                    <label>Show Date</label>
-                    <input name="date" type="date" class="form-control" id="date" value="{{date}}">
+        <form action="/schedule/tnt" method="post">
+            <div class="form-group">
+                <label>Show Date</label>
+                <input name="date" type="date" class="form-control" id="date" value="{{today}}">
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label for="team1">Team 1</label>
+                        <select name="team1" class="form-control" id="team1">
+                        {{#each teams }}
+                            <option value="{{ team.S }}">{{ team.S }}</option>
+                        {{/each }}
+                        </select>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-6">
-                        <div class="form-group">
-                            <label for="team1">Team 1</label>
-                            <select name="team1" class="form-control" id="team1">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label for="team2">Team 2</label>
+                        <select name="team2" class="form-control" id="team2">
                             {{#each teams }}
                                 <option value="{{ team.S }}">{{ team.S }}</option>
                             {{/each }}
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-6">
-                        <div class="form-group">
-                            <label for="team2">Team 2</label>
-                            <select name="team2" class="form-control" id="team2">
-                                {{#each teams }}
-                                <option value="{{ team.S }}">{{ team.S }}</option>
-                                {{/each }}
-                            </select>
-                        </div>
+                        </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-            <p class="{{styleMessage status}}">{{message}}</p>
-        </div>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <p class="{{styleMessage status}}">{{message}}</p>
     </div>
 </div>
