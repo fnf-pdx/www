@@ -6,13 +6,13 @@ AWS.config.region = 'us-west-2';
 
 var ddb = new AWS.DynamoDB();
 
-var waitingList = require('./lib/data/waitingList')(ddb);
-var schedule = require('./lib/data/schedule')(ddb);
+var waitingList = require('./../lib/data/waitingList')(ddb);
+var schedule = require('./../lib/data/schedule')(ddb);
 
-var tntSignUp = require('./lib/handlers/signUp')(waitingList);
-var tntWaitingList = require('./lib/handlers/waitingList')(waitingList);
-var scheduleHandler  = require('./lib/handlers/schedule')(waitingList, schedule);
-var calendar = require('./lib/handlers/calendar')(schedule);
+var tntSignUp = require('./../lib/controllers/signUp')(waitingList);
+var tntWaitingList = require('./../lib/controllers/waitingList')(waitingList);
+var scheduleHandler  = require('./../lib/controllers/schedule')(waitingList, schedule);
+var calendar = require('./../lib/controllers/calendar')(schedule);
 
 var version = require('./package').version;
 
@@ -29,8 +29,7 @@ server.views({
   layout: true,
   path: viewsBasePath,
   layoutPath: viewsBasePath + '/layout',
-  helpersPath:  'lib/helpers',
-  partialsPath: viewsBasePath + '/partials'
+  helpersPath:  'lib/helpers'
 });
 
 server.route({

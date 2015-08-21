@@ -1,0 +1,12 @@
+{
+  "name": "fnf-bower",
+  "dependencies": {
+    "breakpoint": "~4.6.4",
+    "susy": "~2.2.2",
+    "normalize.scss": "~3.0.2",
+    "modernizr": "~2.8.3"
+  },
+  "devDependencies": {
+    "sass-css3-mixins": "*"
+  }
+}

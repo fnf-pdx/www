@@ -1,23 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
 <div class="row">
     <div class="col-xs-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Friday Night Fights Waiting List</div>
+            <div class="panel-heading">Waiting List</div>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Team Name</th>
                         <th>Sign Up Date</th>
+                        <th>Team Name</th>
                     </tr>
                 </thead>
                 <tbody>
-                {{#each teams}}
+                {% for team in teams %}
                     <tr>
-                        <td>{{ teamName.S }}</td>
-                        <td>{{ formatDate signUpDate.N }}</td>
+                        <td>{{ date.S }}</td>
+                        <td>{{ team.S }}</td>
                     </tr>
-                {{/each}}
+                {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+{% endblock %}
