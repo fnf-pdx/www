@@ -2,34 +2,34 @@
     <div class="col-xs-12">
         <form action="/sign-up" method="post">
             <div class="form-group">
-                <label for="name">Team Name</label>
-                <input name="name" type="text" class="form-control" id="name" placeholder="Team Name">
+                <label for="team">Team Name</label>
+                <input name="team" type="text" class="form-control" id="team" placeholder="Team Name">
             </div>
-            <!--<div class="form-group">-->
-                <!--<label for="members">Team Members</label>-->
-                <!--<input name="members" type="text" class="form-control" id="members" placeholder="Team Members">-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-                <!--<label for="photo">Team Photo</label>-->
-                <!--<input name="photo" type="file" id="photo">-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-                <!--<label for="origin">How We Formed</label>-->
-                <!--<textarea name="origin" class="form-control" id="origin" rows="3"></textarea>-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-                <!--<label for="style">What We Do</label>-->
-                <!--<textarea name="style" class="form-control" id="style" rows="3"></textarea>-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-                <!--<label for="coach">Coach</label>-->
-                <!--<div class="checkbox">-->
-                    <!--<label>-->
-                        <!--<input type="checkbox"> Do you have a coach?-->
-                    <!--</label>-->
-                <!--</div>-->
-                <!--<input name="coach" type="text" class="form-control" id="coach" placeholder="Coach's Name">-->
-            <!--</div>-->
+            <div class="form-group">
+                <label for="members">Team Members</label>
+                <input name="members" type="text" class="form-control" id="members" placeholder="Team Members">
+            </div>
+            <div class="form-group">
+                <label for="photo">Team Photo</label>
+                <input name="photo" type="file" id="photo">
+            </div>
+            <div class="form-group">
+                <label for="origin">How We Formed</label>
+                <textarea name="origin" class="form-control" id="origin" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="style">What We Do</label>
+                <textarea name="style" class="form-control" id="style" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="coach">Coach</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Do you have a coach?
+                    </label>
+                </div>
+                <input name="coach" type="text" class="form-control" id="coach" placeholder="Coach's Name">
+            </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <p class="text-danger">{{message}}</p>

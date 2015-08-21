@@ -18,13 +18,14 @@
   "homepage": "https://github.com/notxt/fnf",
   "dependencies": {
     "aws-sdk": "^2.1.42",
+    "browser-sync": "^2.5.2",
     "good": "^6.3.0",
     "good-console": "^5.0.2",
+    "gulp": "^3.8.11",
     "handlebars": "^3.0.3",
     "hapi": "^8.8.1",
-    "moment-timezone": "^0.4.0",
-    "browser-sync": "^2.5.2",
-    "gulp": "^3.8.11"
+    "lodash": "^3.10.1",
+    "moment-timezone": "^0.4.0"
   },
   "devDependencies": {
     "browser-sync": "^2.5.2",
