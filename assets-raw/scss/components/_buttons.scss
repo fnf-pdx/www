@@ -12,18 +12,17 @@
     overflow: visible;
     margin: 0;
     padding: 0.25rem 0.7500rem;
-    color: $blue;
-    border: 0.2rem solid $blue;
+    color: $buttonColor;
+    border: $buttonBorderWidth solid $buttonBorderColor;
     border-radius: 0.25rem;
-    background: $white;
+    background: $buttonColor;
     cursor: pointer;
-
     &:hover,
     &:active,
     &:focus {
         text-decoration: none;
-        color: $white;
-        background: $blue;
+        color: $buttonTextColor--hover;
+        background: $buttonColor--hover;
     }
 }
 

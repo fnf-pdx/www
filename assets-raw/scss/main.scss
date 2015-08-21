@@ -5,10 +5,11 @@
 // External Libraries
 @import "../../bower_components/susy/sass/susy";
 @import "../../bower_components/breakpoint/breakpoint/breakpoint";
+@import "../../bower_components/sass-css3-mixins/css3-mixins";
 
 // Fonts
-@import url("http://fonts.googleapis.com/css?family=PT+Serif:700");
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,600");
+@import url("http://fonts.googleapis.com/css?family=Fjalla+One");
+@import url("http://fonts.googleapis.com/css?family=Cantarell:400,400italic,700");
 
 // Utils
 @import "utils/vars";
@@ -19,6 +20,8 @@
 @import "base/normalize";
 @import "base/base";
 @import "base/type";
+@import "base/links";
+@import "components/buttons";
 
 // Layout
 @import "layout/layout";
@@ -26,11 +29,10 @@
 // Components
 @import "components/intro";
 @import "components/nav";
-@import "components/about";
-@import "components/projects";
-// @import "components/examples";
-@import "components/title";
+@import "components/schedule";
+@import "components/map";
 @import "components/footer";
-@import "components/buttons";
-
+// @import "components/projects";
+// // @import "components/examples";
+// @import "components/title";
 
