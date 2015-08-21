@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Map - Curious Comedy Location
+   ========================================================================== */
+
+#cd-google-map {
+    margin-bottom: $baseSpacing * 2;
+    margin-bottom: $baseSpacing * 4;
+}
+
+#google-container {
+    width: 96.66666%;
+    height: 20rem;
+    margin: auto;
+}
+
+#cd-google-map address {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 3.3%;
+    width: 93.4%;
+    padding: $baseSpacing $baseSpacing;
+    color: $colorText;
+    background-color: rgba($white, 0.8);
+}
