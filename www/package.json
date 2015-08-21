@@ -13,6 +13,7 @@
   "devDependencies": {
     "browser-sync": "^2.5.2",
     "gulp": "^3.8.11",
+    "gulp-data": "^1.2.0",
     "gulp-sass": "^2.0.4",
     "gulp-swig": "^0.7.4",
     "require-dir": "^0.3.0"

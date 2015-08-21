@@ -17,33 +17,19 @@
     <div class="schedule-table fnf">
         <div class="schedule-table--wrap">
             <div class="schedule-title">
-                <h5>Friday Night Fight</h5>
+                <h5>{{ fnf.name }}</h5>
             </div>
             <div class="schedule">
-                <div class="schedule-row">
-                    <div class="schedule-row--left">
-                        Fit to Print <span>vs</span>
+                {% for show in fnf.shows %}
+                    <div class="schedule-row">
+                        <div class="schedule-row--left">
+                           {{ show.team1 }} <span>vs</span> {{ show.team2 }}
+                        </div>
+                        <div class="schedule-row--right text-right">
+                            {{ show.date }}
+                        </div>
                     </div>
-                    <div class="schedule-row--right text-right">
-                        Friday the 21st at 9:30
-                    </div>
-                </div>
-                <div class="schedule-row">
-                    <div class="schedule-row--left">
-                        ? <span>vs</span> ?
-                    </div>
-                    <div class="schedule-row--right text-right">
-                        Friday the 21st at 9:30
-                    </div>
-                </div>
-                <div class="schedule-row">
-                    <div class="schedule-row--left">
-                        ? <span>vs</span> ?
-                    </div>
-                    <div class="schedule-row--right text-right">
-                        Friday the 21st at 9:30
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -56,22 +42,6 @@
                 <div class="schedule-row">
                     <div class="schedule-row--left">
                         Fit to Print <span>vs</span> Add Hoc
-                    </div>
-                    <div class="schedule-row--right text-right">
-                        Friday the 21st at 9:30
-                    </div>
-                </div>
-                <div class="schedule-row">
-                    <div class="schedule-row--left">
-                        ? <span>vs</span> ?
-                    </div>
-                    <div class="schedule-row--right text-right">
-                        Friday the 21st at 9:30
-                    </div>
-                </div>
-                <div class="schedule-row">
-                    <div class="schedule-row--left">
-                        ? <span>vs</span> ?
                     </div>
                     <div class="schedule-row--right text-right">
                         Friday the 21st at 9:30
