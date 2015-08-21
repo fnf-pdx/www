@@ -1,0 +1,63 @@
+.visuallyhidden.focusable.pseudo-class-active,
+.visuallyhidden.focusable.pseudo-class-focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+a.pseudo-class-active,
+a.pseudo-class-hover {
+  outline: 0;
+}
+
+.intro .downArrow.pseudo-class-hover,
+.intro .downArrow.pseudo-class-active,
+.intro .downArrow.pseudo-class-focus {
+  opacity: 0.75;
+}
+
+.navbar .logo.pseudo-class-hover,
+.navbar .logo.pseudo-class-active,
+.navbar .logo.pseudo-class-focus {
+  opacity: .75;
+}
+
+.navbar > ul li a.pseudo-class-hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.js-navbar.scrollNav .nav-item.pseudo-class-hover {
+  background: #3372df;
+  color: white;
+}
+
+.project a.pseudo-class-hover h2,
+.project a.pseudo-class-active h2,
+.project a.pseudo-class-focus h2 {
+  text-decoration: none;
+  color: #5f90e6;
+}
+
+.project img.pseudo-class-hover,
+.project img.pseudo-class-active,
+.project img.pseudo-class-focus {
+  border: .2rem solid #3372df;
+}
+
+.social li a.pseudo-class-hover,
+.social li a.pseudo-class-active,
+.social li a.pseudo-class-focus {
+  text-decoration: none;
+  opacity: .75;
+}
+
+.btn.pseudo-class-hover,
+.btn.pseudo-class-active,
+.btn.pseudo-class-focus {
+  text-decoration: none;
+  color: white;
+  background: #3372df;
+}
