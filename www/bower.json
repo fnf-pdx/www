@@ -1,20 +1,6 @@
 {
-  "name": "fnf",
-  "version": "1.0.0",
-  "homepage": "https://github.com/notxt/fnf",
-  "authors": [
-    "notxt <michaelkschoenfelder@gmail.com>"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "name": "fnf-bower",
   "dependencies": {
-    "bootstrap": "~3.3.5",
     "breakpoint": "~4.6.4",
     "susy": "~2.2.2",
     "normalize.scss": "~3.0.2",
