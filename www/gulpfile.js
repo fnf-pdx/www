@@ -4,6 +4,7 @@ var sass        = require('gulp-sass');
 var swig        = require('gulp-swig');
 var data        = require('gulp-data');
 var path        = require('path');
+var fs          = require('fs');
 var reload      = browserSync.reload;
 
 var src = {
@@ -13,7 +14,18 @@ var src = {
 };
 
 function getJsonData(file) {
-  return require('./mock_data/' + path.basename(file.path) + '.json');
+  var filename = './mock_data/' + path.basename(file.path, '.html') + '.json';
+  var fileContents;
+  var data;
+
+  try {
+    fileContents = fs.readFileSync(filename, 'utf8');
+    data = JSON.parse(fileContents);
+  } catch(e) {
+    data = {};
+  }
+  console.log(data);
+  return data;
 }
 
 gulp.task('serve', ['sass', 'templates'], function() {

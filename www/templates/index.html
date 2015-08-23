@@ -3,19 +3,18 @@
 <div class="container">
     <div class="splitlayout">
         <div class="intro">
-            <svg class="icn-vs">
-                <use xlink:href="#icn-vs"></use>
-            </svg>
             <div class="side side-left">
+                <img src="{{ intro.team1.pic }}">
                 <div class="intro-content">
-                    <h1>Fit to Print</h1>
+                    <h1>{{ intro.team1.name }}</h1>
                 </div>
                 <div class="overlay-color"></div>
                 <div class="overlay-img"></div>
             </div>
             <div class="side side-right">
+                <img src="{{ intro.team2.pic }}">
                 <div class="intro-content">
-                    <h1>Add Hawk</h1>
+                    <h1>{{ intro.team2.name }}</h1>
                 </div>
                 <div class="overlay-color"></div>
                 <div class="overlay-img"></div>
@@ -42,10 +41,10 @@
     <div class="schedule-table fnf">
         <div class="schedule-table--wrap">
             <div class="schedule-title">
-                <h5>{{ fnf.name }}</h5>
+                <h5>{{ schedule.fnf.name }}</h5>
             </div>
             <div class="schedule">
-                {% for show in fnf.shows %}
+                {% for show in schedule.fnf.shows %}
                     <div class="schedule-row">
                         <div class="schedule-row--left">
                            {{ show.team1 }} <span>vs</span> {{ show.team2 }}
@@ -61,17 +60,19 @@
     <div class="schedule-table tnt">
         <div class="schedule-table--wrap">
             <div class="schedule-title">
-                <h5>Thursday Night Throwdown</h5>
+                <h5>{{ schedule.fnf.name }}</h5>
             </div>
             <div class="schedule">
+                {% for show in schedule.fnf.shows %}
                 <div class="schedule-row">
                     <div class="schedule-row--left">
-                        Fit to Print <span>vs</span> Add Hoc
+                        {{ show.team1 }} <span>vs</span> {{ show.team2 }}
                     </div>
                     <div class="schedule-row--right text-right">
-                        Friday the 21st at 9:30
+                        {{ show.date }}
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
