@@ -1,8 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="row">
-    <div class="col-xs-12">
+    <div class="signup-form">
         <form action="/sign-up" method="post">
             <div class="form-group">
                 <label for="team">Team Name</label>
@@ -37,5 +36,4 @@
         </form>
         <p class="text-danger">{{ message }}</p>
     </div>
-</div>
 {% endblock %}

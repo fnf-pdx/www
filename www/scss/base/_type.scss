@@ -13,9 +13,6 @@
   font-weight: $fontWeight;
   line-height: $lineHeight;
   color: $colorText;
-}
-
-html {
   font-size: 100%;
   @extend .sg-style;
 
@@ -32,12 +29,15 @@ html {
   }
 }
 
+html {
+  @extend .sg-style;
+}
+
 // Headings
 //
 // These are our headings
 //
 // markup:
-// <span class="sg-style">
 // <h1>Heading 1</h1>
 // <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
 // <h2>Heading 2</h2>
@@ -46,7 +46,6 @@ html {
 // <h5>Heading 5</h5>
 // <p class="yotta">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 // <p class="zetta">Si quidem, inquit, tollerem, sed relinquo.</p>
-// </span>
 //
 // Styleguide 2.1
 
@@ -123,7 +122,6 @@ p {
 // Styling for common inline HTML5 elements.
 //
 // markup:
-// <span class="sg-style">
 // <p>You can use the mark tag to <mark>highlight</mark> text.</p>
 // <p><del>This line of text is meant to be treated as deleted text.</del></p>
 // <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
@@ -133,7 +131,6 @@ p {
 // <p><strong>This line rendered as bold text.</strong></p>
 // <p><em>This line rendered as italicized text.</em></p>
 // <p><span class="micro">This line rendered as micro text.</span></p>
-// </span>
 //
 // Styleguide 2.3
 

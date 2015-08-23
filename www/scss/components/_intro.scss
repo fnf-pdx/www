@@ -45,7 +45,7 @@
 
 .side-left {
     left: 0;
-    outline: ($borderWidth * 2) solid $yellow; /* avoid gap */
+    outline: ($borderWidth * 2) solid #000; /* avoid gap */
     .overlay-color {
         background: rgba($red, 0.5);
     }
@@ -62,7 +62,7 @@
 
 .side-right {
     right: 0;
-    outline: ($borderWidth * 2) solid $yellow; /* avoid gap */
+    outline: ($borderWidth * 2) solid #000; /* avoid gap */
     .overlay-color {
         background: rgba($blue, 0.5);
     }
@@ -100,7 +100,8 @@
     }
 }
 
-.icn-vs {
+.icn-vs,
+.when {
     @include transform(translateY(-50%) translateX(-50%));
     position: fixed;
     z-index: $zindex-overlay;
@@ -109,5 +110,23 @@
     width: $baseSpacing * 3;
     @include breakpoint(phablet) {
         width: inherit;
+    }
+}
+
+.when {
+    font-weight: 700;
+    text-transform: uppercase;
+    top: 75%;
+    top: $baseSpacing * 1.2;
+    padding: $baseSpacing * 0.5;
+    color: $yellow;
+    border: ($borderWidth * 2) solid $yellow;
+    background: $yellow;
+    background: rgba(0, 0, 0, 0.6);
+    span {
+        @extend .micro;
+        font-weight: normal;
+        text-align: center;
+        display: block;
     }
 }

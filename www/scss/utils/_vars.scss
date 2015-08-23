@@ -79,7 +79,7 @@ $yellowSecondary: lighten($yellow, 20%);
 $white: white;
 $gray: #737373;
 $grayLight: #eeeeee;
-$grayLightest: lighten($grayLight, 1%);
+$grayLightest: lighten($grayLight, 5%);
 $grayDark: #404040;
 $grayDarkest: #333333;
 
@@ -116,7 +116,7 @@ $buttonBorderWidth: .2rem;
 $animationEasing: cubic-bezier(0.455, 0.030, 0.515, 0.955) !default;
 
 // Base spacing
-$baseSpacing: 1.5rem;
+$baseSpacing: 2.5rem;
 
 // Border
 $borderWidth: .1rem;

@@ -1,4 +1,29 @@
 {% extends 'layout.html' %}
+{% block intro %}
+<div class="container">
+    <div class="splitlayout">
+        <div class="intro">
+            <svg class="icn-vs">
+                <use xlink:href="#icn-vs"></use>
+            </svg>
+            <div class="side side-left">
+                <div class="intro-content">
+                    <h1>Fit to Print</h1>
+                </div>
+                <div class="overlay-color"></div>
+                <div class="overlay-img"></div>
+            </div>
+            <div class="side side-right">
+                <div class="intro-content">
+                    <h1>Add Hawk</h1>
+                </div>
+                <div class="overlay-color"></div>
+                <div class="overlay-img"></div>
+            </div>
+        </div><!-- /Intro -->
+    </div>
+</div>
+{% endblock %}
 
 {% block content %}
 <section class="section about">

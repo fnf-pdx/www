@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+// Forms
+//
+// Inputs, Radio Buttons, Checkboxes
+//
+// Styleguide 5.0
+
+// Example form
+//
+// Form controls have no basic layout specified (by design). You'll need
+// to use `<fieldset>`s, `<div>`s, or other elements to rearange them.
+//
+// markup:
+// <form>
+//   <label for="name">Name</label>
+//   <input class="input" type="text" id="name">
+//   </input>
+//   <label for="email">Email address</label>
+//   <input type="email" id="email">
+//   <label>
+//     <input type="checkbox"> Remember me
+//   </label>
+//   <label>
+//     <input type="radio" id="herp" name="herpderp" checked> Herp
+//   </label>
+//   <label>
+//     <input type="radio" id="derp" name="herpderp"> Derp
+//   </label>
+//   <button class="btn" type="submit">Submit</button>
+// </form>
+//
+// Styleguide 5.1
+
+input {
+    position: relative;
+    padding: $baseSpacing * .25;
+    background: $grayLightest;
+    border: $borderWidth solid $grayLight;
+    vertical-align: middle;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+input[type=search],
+input[type=text] {
+    -webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+label {
+    vertical-align: text-top;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+// The `<legend>` is very important for accessibility reasons
+//  (it will be spoken by assistive technologies as part of the label of each form element inside the fieldset)
+//  This hides it
+legend {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
