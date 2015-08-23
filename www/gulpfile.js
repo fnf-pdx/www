@@ -7,7 +7,7 @@ var path        = require('path');
 var reload      = browserSync.reload;
 
 var src = {
-  scss: 'scss/*.scss',
+  scss: 'scss/**/*.scss',
   html: 'templates/*.html',
   data: 'mock_data/*.json'
 };
