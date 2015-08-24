@@ -8,15 +8,17 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Sign Up Date</th>
+                        <th>Position</th>
                         <th>Team Name</th>
+                        <th>Sign Up Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                {% for team in teams %}
+                {% for team in waitingList %}
                     <tr>
-                        <td>{{ date.S }}</td>
-                        <td>{{ team.S }}</td>
+                        <td>{{ team.position }}</td>
+                        <td>{{ team.position }}</td>
+                        <td>{{ team['sign-up-date'] }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>

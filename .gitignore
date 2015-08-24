@@ -29,4 +29,4 @@ node_modules
 .idea
 
 bower_components
-dist
+dev
