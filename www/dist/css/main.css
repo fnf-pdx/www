@@ -1,0 +1,1194 @@
+/* ==========================================================================
+   Main Scss File: Importing all other files
+   ========================================================================== */
+@import url("http://fonts.googleapis.com/css?family=Fjalla+One");
+@import url("http://fonts.googleapis.com/css?family=Cantarell:400,400italic,700");
+@media (min-width: 0) {
+  body::before {
+    content: '{ "current" : "small", "all" : [small ], "position" : 0 }';
+    display: none; } }
+
+/*! Grid based on https://github.com/necolas/griddle by Nicolas Gallagher (@necolas) */
+body {
+  font-size: 1em; }
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25em;
+  padding-right: 1.25em; }
+
+img {
+  max-width: 100%; }
+
+.no-js .responsive-image {
+  display: none; }
+
+.grid {
+  display: block;
+  padding: 0;
+  margin: 0 -0.625em;
+  text-align: left;
+  letter-spacing: -0.31em;
+  text-rendering: optimizespeed; }
+
+.opera:-o-prefocus,
+.grid {
+  word-spacing: -0.43em; }
+
+.grid > .grid {
+  overflow: hidden;
+  margin-right: 0;
+  margin-left: 0; }
+
+.grid__cell {
+  width: 100%;
+  display: -moz-inline-stack;
+  display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 0.625em;
+  /* controls vertical positioning of units */
+  vertical-align: top;
+  /* keeps unit content correctly aligned */
+  text-align: left;
+  /* reset text defaults */
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-rendering: auto; }
+
+.grid--center {
+  text-align: center; }
+
+.grid__cell--center {
+  display: block;
+  margin: 0 auto; }
+
+/* -------------------------------------------------------------
+  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+
+  List of CSS3 Sass Mixins File to be @imported and @included as you need
+
+  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
+  ENDING css files
+
+  note: All CSS3 Properties are being supported by Safari 5
+  more info: http://www.findmebyip.com/litmus/#css3-properties
+
+  Mixins available:
+    -   css3-prefix             - arguments: Property, Value
+    -   background-gradient     - arguments: Start Color: #3C3C3C, End Color: #999999
+    -   background-horizontal   - arguments: Start Color: #3C3C3C, End Color: #999999
+    -   background-radial       - arguments: Start Color: #FFFFFF, Start position: 0%, End Color: #000000, End position: 100%
+    -   background-size         - arguments: Width: 100%, Height: 100%
+    -   background-opacity      - arguments: Color: #000, Opacity: .85
+    -   border-radius           - arguments: Radius: 5px
+    -   border-radius-separate  - arguments: Top Left: 5px, Top Right: 5px, Bottom Left: 5px, Bottom Right: 5px
+    -   box                     - arguments: Orientation: horizontal, Pack: center, Align: center
+    -   box-rgba                - arguments: R: 60, G: 3, B: 12, Opacity: 0.23, Color: #3C3C3C
+    -   box-shadow              - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
+    -   box-sizing              - arguments: Type: border-box
+    -   columns                 - arguments: Count: 3, Gap: 10
+    -   double-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Radius: 0
+    -   flex                    - arguments: Value: 1
+    -   flip                    - arguments: ScaleX: -1
+    -   font-face               - arguments: Font Family: myFont, Eot File Src: myFont.eot, Woff File Src: myFont.woff, Ttf File Src: myFont.ttf
+    -   opacity                 - arguments: Opacity: 0.5
+    -   outline radius          - arguments: Radius: 5px
+    -   resize                  - arguments: Direction: both
+    -   rotate                  - arguments: Degree: 0, M11: 0, M12: 0, M21: 0, M22: 0
+    CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html
+    -   text-shadow             - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
+    -   transform               - arguments: Parameters: null
+    -   transform-style         - arguments: Style: preserve-3d
+    -   transition              - Default arguments: What: all, Length: 1s, Easing: ease-in-out
+    -                            - Examples: @include transition (all 2s ease-in-out);
+    -                                        @include transition (opacity 1s ease-in 2s, width 2s ease-out);
+    -   triple-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0
+    -   keyframes               - arguments: Animation name
+                                - content:   Animation css
+    -   animation               - arguments: name duration timing-function delay iteration-count direction fill-mode play-state
+                                             (http://www.w3schools.com/cssref/css3_pr_animation.asp)
+
+------------------------------------------------------------- */
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+a, .btn, .social li a {
+  transition-property: all;
+  transition-duration: .2s;
+  transition-timing-function: ease-in; }
+
+/* ==========================================================================
+   Helper classes - Class & placeholders helpers
+   ========================================================================== */
+/*
+ * Hide visually and from screen readers:
+ */
+.hidden {
+  display: none !important; }
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+  visibility: hidden; }
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before,
+.section:before,
+.schedule-table--wrap:before,
+.clearfix:after, .section:after, .schedule-table--wrap:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.clearfix:after, .section:after, .schedule-table--wrap:after {
+  clear: both; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.normal {
+  font-weight: normal; }
+
+.bold {
+  font-weight: bold; }
+
+.italic {
+  font-style: italic; }
+
+.listReset, .listInline, .footer-wrap > ul, .social {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.listInline > li, .footer-wrap > ul > li, .social > li {
+  display: inline-block; }
+
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0; }
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none; }
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background-color: transparent; }
+
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+a:active,
+a:hover {
+  outline: 0; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0; }
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px; }
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  box-sizing: content-box;
+  height: 0; }
+
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto; }
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"], input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal; }
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  box-sizing: content-box;
+  /* 2 */ }
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto; }
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold; }
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td,
+th {
+  padding: 0; }
+
+/* ==========================================================================
+   Base file - Base global styles
+   ========================================================================== */
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle; }
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+.sg-style, html {
+  font-family: "Cantarell", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: 1.5;
+  color: black;
+  font-size: 100%; }
+  @media (min-width: 50em) {
+    .sg-style, html {
+      font-size: 110%; } }
+  @media (min-width: 70em) {
+    .sg-style, html {
+      font-size: 120%; } }
+  @media (min-width: 90em) {
+    .sg-style, html {
+      font-size: 130%; } }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Fjalla One", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: black; }
+
+.yotta,
+.zetta {
+  font-family: "Cantarell", Helvetica, Arial, sans-serif; }
+
+.yotta {
+  font-size: 2.2807rem;
+  line-height: 1.3154;
+  color: #003356;
+  font-weight: 900;
+  text-transform: uppercase; }
+
+.zetta {
+  font-size: 2.0273rem;
+  line-height: 1.4798;
+  color: #003356; }
+
+h1, .exa {
+  font-size: 1.8020rem;
+  line-height: 1.6648; }
+
+h2, .peta {
+  font-size: 1.6018rem;
+  line-height: 1.8729; }
+
+h3, .tera {
+  font-size: 1.4238rem;
+  line-height: 1.0535; }
+
+h4, .giga {
+  font-size: 1.2656rem;
+  line-height: 1.1852; }
+
+h5, .mega {
+  font-size: 1.1250rem;
+  line-height: 1.3333; }
+
+h6, .kilo {
+  font-size: 1.0000rem;
+  line-height: 1.5000; }
+
+p {
+  margin: 0 0 1.5rem; }
+
+small, .milli {
+  font-size: 0.5rem;
+  line-height: 1.6875; }
+
+.micro, .when span {
+  font-size: 0.7901rem;
+  line-height: 1.8984; }
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+a {
+  text-decoration: none;
+  color: #23a5ff;
+  outline: none; }
+  a:visited {
+    color: inherit; }
+  a:hover,
+  a:active {
+    color: #003356; }
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+input {
+  position: relative;
+  padding: 0.625rem;
+  background: #fbfbfb;
+  border: 0.1rem solid #eeeeee;
+  vertical-align: middle; }
+  input:focus {
+    outline: none; }
+
+input[type=search],
+input[type=text] {
+  -webkit-appearance: none;
+  /* for box shadows to show on iOS */ }
+
+label {
+  vertical-align: text-top;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+legend {
+  width: 1px;
+  height: 1px;
+  overflow: hidden; }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  font: inherit;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  display: inline-block;
+  overflow: visible;
+  margin: 0;
+  padding: 0.25rem 0.75rem;
+  color: none;
+  border: 0.2rem solid black;
+  border-radius: 0.25rem;
+  background: none;
+  cursor: pointer; }
+  .btn:hover,
+  .btn:active,
+  .btn:focus {
+    text-decoration: none;
+    color: #f4b400;
+    background: black; }
+
+/* ==========================================================================
+   Layout - Main layout file
+   ========================================================================== */
+html,
+body,
+.container {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+body {
+  overflow-x: hidden;
+  overflow-y: visible; }
+
+main {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  main:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+.section {
+  clear: both;
+  width: 100%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%;
+  position: relative;
+  clear: both; }
+  .section.about {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem; }
+  .section.schedule {
+    padding-bottom: 10rem; }
+
+/*
+   #Nav
+   ========================================================================== */
+.navbar {
+  clear: both;
+  width: 100%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%; }
+  .navbar .brand {
+    width: 100%;
+    float: left;
+    padding-left: 1.66667%;
+    padding-right: 1.66667%; }
+    @media (min-width: 37.5em) {
+      .navbar .brand {
+        width: 50%;
+        float: left;
+        padding-left: 1.66667%;
+        padding-right: 1.66667%; } }
+    @media (min-width: 64em) {
+      .navbar .brand {
+        width: 75%;
+        float: left;
+        padding-left: 1.66667%;
+        padding-right: 1.66667%; } }
+  .navbar > ul li {
+    width: 33.33333%;
+    float: left; }
+    @media (min-width: 37.5em) {
+      .navbar > ul li {
+        width: 16.66667%;
+        float: left; } }
+    @media (min-width: 64em) {
+      .navbar > ul li {
+        width: 8.33333%;
+        float: left; } }
+
+/*
+   About
+   ========================================================================== */
+.about-info,
+.about-signup {
+  width: 100%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%; }
+  @media (min-width: 37.5em) {
+    .about-info,
+    .about-signup {
+      width: 50%;
+      float: left;
+      padding-left: 1.66667%;
+      padding-right: 1.66667%; } }
+
+/*
+   #Schedule Blocks
+   ========================================================================== */
+.schedule-table {
+  width: 100%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%; }
+  @media (min-width: 37.5em) {
+    .schedule-table {
+      width: 50%;
+      float: left;
+      padding-left: 1.66667%;
+      padding-right: 1.66667%; } }
+
+.schedule-row {
+  width: 100%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%; }
+
+.schedule-row--left,
+.schedule-row--right {
+  width: 50%;
+  float: left; }
+
+.schedule-title {
+  width: 100%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%; }
+
+/*
+   #Maps
+   ========================================================================== */
+#cd-google-map {
+  width: 100%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%; }
+
+/*
+   #Signup Form
+   ========================================================================== */
+.signup-form {
+  width: 50%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%;
+  margin-left: 25%;
+  background: white;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding: 2.5rem; }
+
+/* ==========================================================================
+   Intro - Landing area
+   ========================================================================== */
+.splitlayout {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100%; }
+
+.side {
+  text-align: center;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; }
+
+.open-left .side,
+.open-right .side {
+  cursor: default; }
+
+.overlay-img,
+.overlay-color {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 115%;
+  height: 115%; }
+
+.overlay-color {
+  z-index: 3; }
+
+.overlay-img {
+  position: relative;
+  top: -10%; }
+
+.side-left {
+  left: 0;
+  outline: 0.2rem solid #000;
+  /* avoid gap */ }
+  .side-left .overlay-color {
+    background: rgba(108, 20, 0, 0.5); }
+  .side-left .overlay-img {
+    left: -10%;
+    background: url(../img/fit-to-print.jpg) no-repeat center center;
+    background-size: cover;
+    filter: blur(15px); }
+  .side-left h1 {
+    color: white; }
+
+.side-right {
+  right: 0;
+  outline: 0.2rem solid #000;
+  /* avoid gap */ }
+  .side-right .overlay-color {
+    background: rgba(0, 51, 86, 0.5); }
+  .side-right .overlay-img {
+    background: url(../img/biz-caj.jpg) no-repeat center center;
+    background-size: cover;
+    filter: blur(15px); }
+  .side-right h1 {
+    color: white; }
+
+.intro-content {
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -khtml-transform: translateY(-50%) translateX(-50%);
+  -moz-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  -o-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  cursor: pointer; }
+  @media (min-width: 37.5em) {
+    .intro-content {
+      font-size: 4rem;
+      width: 75%;
+      padding: 0 2.5rem; } }
+  .intro-content h1 {
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin: auto;
+    color: #f4b400; }
+    @media (min-width: 37.5em) {
+      .intro-content h1 {
+        font-size: 4rem; } }
+
+.icn-vs,
+.when {
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -khtml-transform: translateY(-50%) translateX(-50%);
+  -moz-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  -o-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 7.5rem; }
+  @media (min-width: 37.5em) {
+    .icn-vs,
+    .when {
+      width: inherit; } }
+
+.when {
+  font-weight: 700;
+  text-transform: uppercase;
+  top: 75%;
+  top: 3rem;
+  padding: 1.25rem;
+  color: #f4b400;
+  border: 0.2rem solid #f4b400;
+  background: #f4b400;
+  background: rgba(0, 0, 0, 0.6); }
+  .when span {
+    font-weight: normal;
+    text-align: center;
+    display: block; }
+
+/* ==========================================================================
+   Main Navigation
+   ========================================================================== */
+main,
+.navbar {
+  position: relative;
+  z-index: 2;
+  background: #f4b400; }
+
+.navbar {
+  bottom: 20%;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: rgba(255, 255, 255, 0.2) solid 0.1rem;
+  background: #f4b400; }
+  .navbar:before {
+    -webkit-transform: rotate(-1deg);
+    -khtml-transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    -ms-transform: rotate(-1deg);
+    -o-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+    border-top: rgba(255, 255, 255, 0.2) solid 0.1rem;
+    position: absolute;
+    z-index: -1;
+    top: -2.5rem;
+    left: -5rem;
+    display: block;
+    width: 120%;
+    height: 7.5rem;
+    background: #f4b400;
+    content: ''; }
+  .navbar > ul a {
+    text-align: center;
+    display: block;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: black; }
+    .navbar > ul a:hover,
+    .navbar > ul a:active {
+      border-bottom: 0.1rem solid white; }
+  .navbar .brand h1 {
+    text-transform: uppercase;
+    margin: 0; }
+
+/* ==========================================================================
+   About section
+   ========================================================================== */
+.schedule-table--wrap {
+  color: white;
+  background: rgba(255, 52, 6, 0.8);
+  position: relative;
+  margin-top: 2.5rem; }
+  .schedule-table--wrap:before {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    background-size: cover;
+    content: '';
+    background-image: url(../img/fnf--small.jpg); }
+    @media (min-width: 64em) {
+      .schedule-table--wrap:before {
+        background-image: url(../img/fnf--large.jpg); } }
+  @media (min-width: 64em) {
+    .schedule-table--wrap {
+      padding-right: 2.5rem;
+      padding-left: 2.5rem; } }
+  @media (min-width: 37.5em) {
+    .schedule-table--wrap {
+      margin-top: 0; } }
+  .schedule-table--wrap h5 {
+    text-transform: uppercase;
+    color: white; }
+
+.tnt .schedule-table--wrap {
+  background: rgba(35, 165, 255, 0.9); }
+  .tnt .schedule-table--wrap:before {
+    background-image: url(../img/tnt--small.jpg); }
+    @media (min-width: 64em) {
+      .tnt .schedule-table--wrap:before {
+        background-image: url(../img/tnt--large.jpg); } }
+
+.schedule-row {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: rgba(255, 255, 255, 0.4) solid 0.1rem; }
+  .schedule-row:last-child {
+    border: none; }
+
+/* ==========================================================================
+   Map - Curious Comedy Location
+   ========================================================================== */
+#cd-google-map {
+  margin-bottom: 5rem;
+  margin-bottom: 10rem; }
+
+#google-container {
+  width: 96.66666%;
+  height: 20rem;
+  margin: auto; }
+
+#cd-google-map address {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 3.3%;
+  width: 93.4%;
+  padding: 2.5rem 2.5rem;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.8); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  text-align: center;
+  z-index: 4;
+  padding: 0;
+  background: #333333; }
+
+.footer-wrap > ul {
+  margin-bottom: 1.25rem; }
+  .footer-wrap > ul li {
+    line-height: 0;
+    display: inline;
+    display: inline-block;
+    margin-left: 1.25rem;
+    color: #555555; }
+    .footer-wrap > ul li:last-child {
+      margin-left: none; }
+
+.social {
+  display: block; }
+  .social li {
+    text-align: center; }
+  .social li a {
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    padding: 1.25rem;
+    padding-bottom: 0;
+    color: #6e6e6e; }
+    .social li a:hover,
+    .social li a:active,
+    .social li a:focus {
+      text-decoration: none;
+      opacity: 0.75; }

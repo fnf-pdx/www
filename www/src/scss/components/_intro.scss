@@ -49,15 +49,6 @@
     .overlay-color {
         background: rgba($red, 0.5);
     }
-    .overlay-img {
-        left: -10%;
-        background: url(../img/fit-to-print.jpg) no-repeat center center;
-        background-size: cover;
-        filter: blur(15px);
-    }
-    h1 {
-        color: $white;
-    }
 }
 
 .side-right {
@@ -66,13 +57,17 @@
     .overlay-color {
         background: rgba($blue, 0.5);
     }
-    .overlay-img {
-        background: url(../img/biz-caj.jpg) no-repeat center center;
+
+}
+
+.side {
+     .overlay-img {
+        background: no-repeat center center;
         background-size: cover;
-        filter: blur(15px);
-    }
-    h1 {
-        color: $white;
+        -webkit-filter: blur(15px);
+        -moz-filter: blur(15px);
+        -o-filter: blur(15px);
+        -ms-filter: blur(15px);
     }
 }
 
@@ -107,22 +102,28 @@
     z-index: $zindex-overlay;
     top: 50%;
     left: 50%;
-    width: $baseSpacing * 3;
+    width: $baseSpacing * 2;
     @include breakpoint(phablet) {
         width: inherit;
+    }
+}
+
+.icn-vs {
+    @include breakpoint(phablet) {
+        width: $baseSpacing * 3;
     }
 }
 
 .when {
     font-weight: 700;
     text-transform: uppercase;
-    top: 75%;
-    top: $baseSpacing * 1.2;
+    top: $baseSpacing * 1;
     padding: $baseSpacing * 0.5;
     color: $yellow;
     border: ($borderWidth * 2) solid $yellow;
     background: $yellow;
     background: rgba(0, 0, 0, 0.6);
+    min-width: 18rem;
     span {
         @extend .micro;
         font-weight: normal;

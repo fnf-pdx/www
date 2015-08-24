@@ -37,12 +37,12 @@ main {
     clear: both;
 
     &.about {
-        padding-top: $baseSpacing * 3;
-        padding-bottom: $baseSpacing * 3;
+        padding-top: $baseSpacing * 2;
+        padding-bottom: $baseSpacing * 2;
     }
 
     &.schedule {
-        padding-bottom: $baseSpacing * 4;
+        padding-bottom: $baseSpacing * 2;
     }
 }
 
@@ -60,16 +60,7 @@ main {
         }
 
         @include breakpoint(laptop) {
-            @include span(9);
-        }
-    }
-    > ul li {
-        @include span(4 of $nav_layout);
-        @include breakpoint(phablet) {
-            @include span(2 of $nav_layout);
-        }
-        @include breakpoint(laptop) {
-            @include span(1 of $nav_layout);
+            @include span(8);
         }
     }
 }
@@ -130,8 +121,11 @@ main {
    ========================================================================== */
 
 .signup-form {
-    @include span(6);
-    @include push(6);
+    @include full;
+    @include breakpoint(phablet) {
+        @include span(6);
+        @include push(3);
+    }
 }
 
 

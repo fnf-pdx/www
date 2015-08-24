@@ -34,15 +34,19 @@
 //
 // Styleguide 5.1
 
-input {
-    position: relative;
-    padding: $baseSpacing * .25;
-    background: $grayLightest;
-    border: $borderWidth solid $grayLight;
+input[type=search],
+input[type=text],
+textarea {
+    @extend %transition-default;
     vertical-align: middle;
-
+    position: relative;
+    padding: $baseSpacing * 0.25;
+    border: $borderWidth solid $grayLight;
+    background: $grayLightest;
     &:focus {
+        border-color: $yellow;
         outline: none;
+        background: $white;
     }
 }
 
@@ -54,21 +58,33 @@ input[type=text] {
 label {
     vertical-align: text-top;
     display: inline-block;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-touch-callout: none;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
 }
 
 // The `<legend>` is very important for accessibility reasons
 //  (it will be spoken by assistive technologies as part of the label of each form element inside the fieldset)
 //  This hides it
 legend {
+  overflow: hidden;
   width: 1px;
   height: 1px;
-  overflow: hidden;
+}
+
+.form-file {
+  label {
+    @extend %transition-default;
+    @extend .btn;
+  }
+  input[type="file"] {
+      position: fixed;
+      top: -1000px;
+  }
 }
