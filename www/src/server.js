@@ -9,12 +9,12 @@ var ddb = new AWS.DynamoDB();
 var waitingList = require('./../lib/data/waitingList')(ddb);
 var schedule = require('./../lib/data/schedule')(ddb);
 
-var tntSignUp = require('./../lib/controllers/signUp')(waitingList);
-var tntWaitingList = require('./../lib/controllers/waitingList')(waitingList);
-var scheduleHandler  = require('./../lib/controllers/schedule')(waitingList, schedule);
-var calendar = require('./../lib/controllers/calendar')(schedule);
+var tntSignUp = require('./../../lib/controllers/signUp')(waitingList);
+var tntWaitingList = require('./../../lib/controllers/waitingList')(waitingList);
+var scheduleHandler  = require('./../../lib/controllers/schedule')(waitingList, schedule);
+var calendar = require('./../../lib/controllers/calendar')(schedule);
 
-var version = require('./package').version;
+var version = require('./../package').version;
 
 var viewsBasePath = 'views-raw';
 
