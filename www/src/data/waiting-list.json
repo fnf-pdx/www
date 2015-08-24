@@ -1,0 +1,44 @@
+{
+  "waitingList": [
+    {
+      "position": 1,
+      "name": "The Popping Corns",
+      "sign-up-date": "September 22nd, 8:00pm"
+    },
+    {
+      "position": 2,
+      "name": "The Big Faces",
+      "sign-up-date": "August 22nd, 3:00pm"
+    },
+    {
+      "position": 3,
+      "name": "Morning After Grill",
+      "sign-up-date": "August 14th, 2:00am"
+    },
+    {
+      "position": 4,
+      "name": "The New Elders",
+      "sign-up-date": "August 10th, 8:00pm"
+    },
+    {
+      "position": 5,
+      "name": "Drama Kings",
+      "sign-up-date": "August 2nd, 8:00pm"
+    },
+    {
+      "position": 6,
+      "name": "Durp!",
+      "sign-up-date": "July 24th, 10:00am"
+    },
+    {
+      "position": 7,
+      "name": "Second Place Trophy Wives",
+      "sign-up-date": "July 4th, 8:00pm"
+    },
+    {
+      "position": 8,
+      "name": "Canada (The Improv Team)",
+      "sign-up-date": "July 3rd, 8:00pm"
+    }
+  ]
+}

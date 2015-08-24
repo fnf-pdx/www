@@ -3,19 +3,18 @@
 <div class="container">
     <div class="splitlayout">
         <div class="intro">
-            <svg class="icn-vs">
-                <use xlink:href="#icn-vs"></use>
-            </svg>
             <div class="side side-left">
+                <img src="{{ intro.team1.pic }}">
                 <div class="intro-content">
-                    <h1>Fit to Print</h1>
+                    <h1>{{ intro.team1.name }}</h1>
                 </div>
                 <div class="overlay-color"></div>
                 <div class="overlay-img"></div>
             </div>
             <div class="side side-right">
+                <img src="{{ intro.team2.pic }}">
                 <div class="intro-content">
-                    <h1>Add Hawk</h1>
+                    <h1>{{ intro.team2.name }}</h1>
                 </div>
                 <div class="overlay-color"></div>
                 <div class="overlay-img"></div>
@@ -28,24 +27,24 @@
 {% block content %}
 <section class="section about">
     <div class="about-info">
-        <h4>$5 online or at the door</h4>
-        <p>What happens when two experienced improv teams go head-to-head in this intense cagematch-style fight? Weirdness, insanity, and hilarity all around! Unfortunately, only one team will make it out alive... And you, the audience, decides who stays...and who gets thrown into a bog and becomes a super neat bog mummy in like, 400 years. You better not miss it! Friday Night Fights is every 1st and 3rd Friday. Hosted by Jay Robert Flewelling.</p>
+        <h4>Every 1st and 3rd Friday Curious Comedy has a improv battle royale!</h4>
+        <p>A cage match show of two improv teams that will throwdown with mad improv skills to win the hearts and minds of the audience, who the audience chooses as the winner will live to (improv) fight again. This show is hosted by man-about-town, Jay Robert Flewelling. Visit Friday Night Fights on Facebook for more information. $7 online or $10 at the door.</p>
         <a href="https://www.boxofficetickets.com/go/event?id=205395" class="btn" target="_blank">Purchase Tickets</a>
     </div>
     <div class="about-signup">
-        <h4>Does your team want to compete?</h4>
-        <p>We're always looking for new teams to compete in Friday Night Fights!</p>
-        <a href="" class="btn">Sign Up</a>
+        <h4>Think your improv team has got the right stuff?</h4>
+        <p>We're always looking for new teams to compete in Friday Night Fights! Every team has equal access and will be booked for a 17min. set on Thursday Night Throwdowns on a first come first serve basis. Winning TNT teams will be booked for Friday Night Fights.</p>
+        <a href="/sign-up" class="btn">Sign Up</a>
     </div>
 </section>
 <section class="section schedule">
     <div class="schedule-table fnf">
         <div class="schedule-table--wrap">
             <div class="schedule-title">
-                <h5>{{ fnf.name }}</h5>
+                <h5>{{ schedule.fnf.name }}</h5>
             </div>
             <div class="schedule">
-                {% for show in fnf.shows %}
+                {% for show in schedule.fnf.shows %}
                     <div class="schedule-row">
                         <div class="schedule-row--left">
                            {{ show.team1 }} <span>vs</span> {{ show.team2 }}
@@ -61,17 +60,19 @@
     <div class="schedule-table tnt">
         <div class="schedule-table--wrap">
             <div class="schedule-title">
-                <h5>Thursday Night Throwdown</h5>
+                <h5>{{ schedule.fnf.name }}</h5>
             </div>
             <div class="schedule">
+                {% for show in schedule.fnf.shows %}
                 <div class="schedule-row">
                     <div class="schedule-row--left">
-                        Fit to Print <span>vs</span> Add Hoc
+                        {{ show.team1 }} <span>vs</span> {{ show.team2 }}
                     </div>
                     <div class="schedule-row--right text-right">
-                        Friday the 21st at 9:30
+                        {{ show.date }}
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
