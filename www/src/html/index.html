@@ -3,21 +3,24 @@
 <div class="container">
     <div class="splitlayout">
         <div class="intro">
+            <svg class="icn-vs">
+                <use xlink:href="#icn-vs"></use>
+            </svg>
+            <div class="when"><span>Next Show:</span>Friday the 21st at 9:30</div>
             <div class="side side-left">
-                <img src="{{ intro.team1.pic }}">
                 <div class="intro-content">
                     <h1>{{ intro.team1.name }}</h1>
                 </div>
                 <div class="overlay-color"></div>
-                <div class="overlay-img"></div>
+                <div class="overlay-img" style="background-image: url(../img/fit-to-print.jpg);">
+                </div>
             </div>
             <div class="side side-right">
-                <img src="{{ intro.team2.pic }}">
                 <div class="intro-content">
                     <h1>{{ intro.team2.name }}</h1>
                 </div>
                 <div class="overlay-color"></div>
-                <div class="overlay-img"></div>
+                <div class="overlay-img" style="background-image: url(../img/biz-caj.jpg);"></div>
             </div>
         </div><!-- /Intro -->
     </div>

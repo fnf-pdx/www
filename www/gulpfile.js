@@ -47,7 +47,7 @@ gulp.task('serve', ['sass', 'html', 'js', 'img'], function() {
 
 gulp.task('sass', function() {
   return gulp.src(src.scss)
-    .pipe(sass({defaults: {cache: false}}))
+    .pipe(sass())
     .pipe(gulp.dest('./dev/css'))
     .pipe(reload({stream: true}));
 });

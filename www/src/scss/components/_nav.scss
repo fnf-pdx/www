@@ -29,11 +29,14 @@ main,
         content: '';
     }
     > ul {
+            display: inline-block;
+            margin: 0 0.5em;
+            float:right;
+
         a {
-            text-align: center;
+            text-align: right;
             display: block;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
+            padding: 0.5rem .75rem;
             color: $colorText;
             &:hover,
             &:active {

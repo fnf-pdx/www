@@ -2,26 +2,28 @@
 
 {% block content %}
     <div class="signup-form">
+        <h1>Sign Up for FNF</h1>
         <form action="/sign-up" method="post">
             <div class="form-group">
                 <label for="team">Team Name</label>
-                <input name="team" type="text" class="form-control" id="team" placeholder="Team Name">
+                <input name="team" type="text" class="form-control" id="team" placeholder="Team Name" tabindex="1">
             </div>
             <div class="form-group">
                 <label for="members">Team Members</label>
-                <input name="members" type="text" class="form-control" id="members" placeholder="Team Members">
+                <input name="members" type="text" class="form-control" id="members" placeholder="Team Members" tabindex="2">
             </div>
-            <div class="form-group">
-                <label for="photo">Team Photo</label>
-                <input name="photo" type="file" id="photo">
+            <div class="form-group form-file">
+                <div>Team Photo</div>
+                <label for="photo">Upload Team Photo</label>
+                <input name="photo" type="file" id="photo" tabindex="3">
             </div>
             <div class="form-group">
                 <label for="origin">How We Formed</label>
-                <textarea name="origin" class="form-control" id="origin" rows="3"></textarea>
+                <textarea name="origin" class="form-control" id="origin" rows="3" placeholder="Tell us how you met?" tabindex="4"></textarea>
             </div>
             <div class="form-group">
                 <label for="style">What We Do</label>
-                <textarea name="style" class="form-control" id="style" rows="3"></textarea>
+                <textarea name="style" class="form-control" id="style" rows="3" placeholder="What kind of format? Tags and sweeps? Armando?" tabindex="5"></textarea>
             </div>
             <div class="form-group">
                 <label for="coach">Coach</label>

@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Signup
+   ========================================================================== */
+
+.signup-form {
+    background: $white;
+    margin-top: $baseSpacing;
+    margin-bottom: $baseSpacing;
+    padding: ($baseSpacing * .5) $baseSpacing $baseSpacing $baseSpacing;
+}
+.form-group {
+    margin-bottom: $baseSpacing * .5;
+
+    label {
+        display: block;
+    }
+
+    input[type=text],
+    input[type=file],
+    textarea {
+        width: 100%;
+    }
+}
+
+
