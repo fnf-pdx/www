@@ -17,5 +17,5 @@ module.exports = function(waitingList) {
 
   return {
     save: save
-  }
+  };
 };

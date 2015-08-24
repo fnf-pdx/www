@@ -5,10 +5,10 @@
     "aws-sdk": "^2.1.42",
     "good": "^6.3.0",
     "good-console": "^5.0.2",
-    "handlebars": "^3.0.3",
     "hapi": "^8.8.1",
     "lodash": "^3.10.1",
-    "moment-timezone": "^0.4.0"
+    "moment-timezone": "^0.4.0",
+    "swig": "^1.4.2"
   },
   "devDependencies": {
     "browser-sync": "^2.5.2",
