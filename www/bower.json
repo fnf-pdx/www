@@ -4,7 +4,8 @@
     "breakpoint": "~4.6.4",
     "susy": "~2.2.2",
     "normalize.scss": "~3.0.2",
-    "modernizr": "~2.8.3"
+    "modernizr": "~2.8.3",
+    "jquery": "~2.1.4"
   },
   "devDependencies": {
     "sass-css3-mixins": "*"
