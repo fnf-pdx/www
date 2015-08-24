@@ -1,3 +1,5 @@
+'use strict';
+
 var Hapi = require('hapi');
 var Good = require('good');
 
@@ -6,17 +8,14 @@ AWS.config.region = 'us-west-2';
 
 var ddb = new AWS.DynamoDB();
 
-var waitingList = require('./../lib/data/waitingList')(ddb);
-var schedule = require('./../lib/data/schedule')(ddb);
+var waitingList = require('./lib/models/waitingList')(ddb);
+var schedule = require('./lib/models/schedule')(ddb);
 
-var tntSignUp = require('./../../lib/controllers/signUp')(waitingList);
-var tntWaitingList = require('./../../lib/controllers/waitingList')(waitingList);
-var scheduleHandler  = require('./../../lib/controllers/schedule')(waitingList, schedule);
-var calendar = require('./../../lib/controllers/calendar')(schedule);
+var indexController = require('./controllers/index')(schedule);
+var signUpController = require('./controllers/signUp')(waitingList);
+var waitingListController = require('./controllers/waitingList')(waitingList);
 
 var version = require('./../package').version;
-
-var viewsBasePath = 'views-raw';
 
 var server = new Hapi.Server();
 server.connection({ port: 3000 });
@@ -24,17 +23,14 @@ server.connection({ port: 3000 });
 server.views({
   isCached: false, //dev mode
   engines: {
-    html: require('handlebars')
+    html: require('swig')
   },
-  layout: true,
-  path: viewsBasePath,
-  layoutPath: viewsBasePath + '/layout',
-  helpersPath:  'lib/helpers'
+  path: './'
 });
 
 server.route({
   method: 'GET',
-  path: '/healthcheck',
+  path: '/health-check',
   handler: function(request, reply) {
     reply({ status: 'ok', version: version });
   }
@@ -52,10 +48,30 @@ server.route({
 
 server.route({
   method: 'GET',
-  path: '/assets/{param*}',
+  path: '/img/{param*}',
   handler: {
     directory: {
-      path: 'assets'
+      path: 'img'
+    }
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/css/{param*}',
+  handler: {
+    directory: {
+      path: 'css'
+    }
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/js/{param*}',
+  handler: {
+    directory: {
+      path: 'js'
     }
   }
 });
@@ -63,9 +79,7 @@ server.route({
 server.route({
   method: 'GET',
   path: '/',
-  handler: {
-    view: 'index'
-  }
+  handler: indexController
 });
 
 server.route({
@@ -79,31 +93,13 @@ server.route({
 server.route({
   method: 'POST',
   path: '/sign-up',
-  handler: tntSignUp.save
+  handler: signUpController.save
 });
 
 server.route({
   method: 'GET',
   path: '/waiting-list',
-  handler: tntWaitingList.list
-});
-
-server.route({
-  method: 'GET',
-  path: '/schedule/tnt',
-  handler: scheduleHandler.form
-});
-
-server.route({
-  method: 'POST',
-  path: '/schedule/tnt',
-  handler: scheduleHandler.save
-});
-
-server.route({
-  method: ['GET', 'POST'],
-  path: '/calendar/{month}',
-  handler: calendar.render
+  handler: waitingListController.list
 });
 
 server.register({
