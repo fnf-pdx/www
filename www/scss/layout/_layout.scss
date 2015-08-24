@@ -131,7 +131,11 @@ main {
 
 .signup-form {
     @include span(6);
-    @include push(6);
+    @include push(3);
+    background: $white;
+    margin-top: $baseSpacing;
+    margin-bottom: $baseSpacing;
+    padding: $baseSpacing;
 }
 
 
