@@ -9,6 +9,9 @@
       "pic": "/img/fit-to-print.jpg"
     }
   },
+  "nextshow": {
+    "date": "Fri 2 Feb, 9:30pm"
+  },
   "schedule": {
     "fnf": {
       "name": "Friday Night Fights",
@@ -49,9 +52,6 @@
           "date": "Fri 2 Feb, 9:30pm"
         }
       ]
-    },
-    "nextshow": {
-      "date": "Fri 2 Feb, 9:30pm"
     }
   }
 }
