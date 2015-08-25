@@ -21,9 +21,9 @@ main,
         position: absolute;
         z-index: -1;
         top: -$baseSpacing;
-        left: -$baseSpacing;
+        left: -2%;
         display: block;
-        width: 120%;
+        width: 102.5%;
         height: $baseSpacing * 3;
         border-top: rgba($white, 0.2) solid $borderWidth;
         background: $bckgColor;
