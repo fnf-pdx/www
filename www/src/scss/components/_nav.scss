@@ -30,17 +30,18 @@ main,
     }
     > ul {
             display: inline-block;
-            margin: 0 0.5em;
             float:right;
 
         a {
+            border-bottom: $borderWidth solid $yellowSecondary;
             text-align: right;
+            margin: 0 ($baseSpacing * .25);
             display: block;
             padding: 0.5rem .75rem;
             color: $colorText;
             &:hover,
             &:active {
-                border-bottom: $borderWidth solid $white;
+                background: $yellowSecondary;
             }
         }
     }
@@ -50,3 +51,22 @@ main,
     }
 }
 
+.logo {
+    h1 {
+        @extend %transition-default;
+    }
+    &:hover,
+    &:active {
+        h1 {
+            color: $white;
+        }
+    }
+}
+
+.icon-arrow-down {
+    position: absolute;
+    right: $baseSpacing * .5;
+    top: -5.5rem;
+    width: 2%;
+    fill: $colorText;
+}

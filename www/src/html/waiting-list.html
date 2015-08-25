@@ -1,29 +1,25 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="row">
-    <div class="col-xs-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">Waiting List</div>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Position</th>
-                        <th>Team Name</th>
-                        <th>Sign Up Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for team in waitingList %}
-                    <tr>
-                        <td>{{ team.position }}</td>
-                        <td>{{ team.position }}</td>
-                        <td>{{ team['sign-up-date'] }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
+<div class="waiting-list">
+    <h1 class="panel-heading">Waiting List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Team Name</th>
+                <th>Sign Up Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for team in waitingList %}
+            <tr>
+                <td>{{ team.position }}</td>
+                <td>{{ team.position }}</td>
+                <td>{{ team['sign-up-date'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}

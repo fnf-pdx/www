@@ -19,7 +19,7 @@
     bottom: 0;
     left: 3.3%;
     width: 93.4%;
-    padding: $baseSpacing $baseSpacing;
+    padding: ($baseSpacing * .5) $baseSpacing;
     color: $colorText;
     background-color: rgba($white, 0.8);
 }

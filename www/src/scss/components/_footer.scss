@@ -47,3 +47,13 @@
         }
     }
 }
+
+.jason-link {
+    text-decoration: underline;
+    &:hover,
+    &:active,
+    &:focus {
+        color: $white;
+    }
+
+}

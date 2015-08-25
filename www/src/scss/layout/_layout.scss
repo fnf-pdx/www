@@ -78,6 +78,12 @@ main {
     }
 }
 
+.about-info {
+    @include breakpoint(phablet) {
+        margin-bottom: none;
+    }
+}
+
 
 
 /*
@@ -122,12 +128,29 @@ main {
 
 .signup-form {
     @include full;
-    @include breakpoint(phablet) {
+    @include breakpoint(tablet) {
+        @include span(8);
+        @include push(2);
+    }
+    @include breakpoint(laptop) {
         @include span(6);
         @include push(3);
     }
 }
 
+
+
+/*
+   #Waiting List
+   ========================================================================== */
+
+.waiting-list {
+    @include full;
+    @include breakpoint(tablet) {
+        @include span(8);
+        @include push(2);
+    }
+}
 
 
 

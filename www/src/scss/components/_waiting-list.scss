@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Waiting List
+   ========================================================================== */
+
+.waiting-list {
+    background: $white;
+    margin-top: $baseSpacing * 2;
+    margin-bottom: $baseSpacing * 2;
+    padding-bottom: $baseSpacing * .5;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr:nth-of-type(odd) {
+    background: $grayLightest;
+}
+
+th {
+    background: $yellowSecondary;
+}
+
+td,
+th {
+    padding: $baseSpacing * .5;
+    border: $borderWidth solid $grayLight;
+    text-align: left;
+}
