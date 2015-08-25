@@ -2,7 +2,8 @@
    Buttons
    ========================================================================== */
 
-.btn {
+.btn,
+a.btn {
     @extend %transition-default;
     font: inherit;
     text-align: center;
@@ -12,6 +13,7 @@
     overflow: visible;
     margin: 0;
     padding: 0.25rem 0.7500rem;
+    color: inherit;
     color: $buttonColor;
     border: $buttonBorderWidth solid $buttonBorderColor;
     border-radius: 0.25rem;

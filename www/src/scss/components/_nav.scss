@@ -15,6 +15,7 @@ main,
     padding-bottom: $baseSpacing;
     border-bottom: rgba($white, 0.2) solid $borderWidth;
     background: $bckgColor;
+    overflow-x: visible;
     &:before {
         @include transform(rotate(-1deg));
         position: absolute;

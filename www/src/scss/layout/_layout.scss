@@ -79,6 +79,7 @@ main {
 }
 
 .about-info {
+    margin-bottom: $baseSpacing;
     @include breakpoint(phablet) {
         margin-bottom: none;
     }
