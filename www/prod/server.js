@@ -8,8 +8,8 @@ AWS.config.region = 'us-west-2';
 
 var ddb = new AWS.DynamoDB();
 
-var waitingList = require('./lib/models/waitingList')(ddb);
-var schedule = require('./lib/models/schedule')(ddb);
+var waitingList = require('./../.././models/waitingList')(ddb);
+var schedule = require('./../.././models/schedule')(ddb);
 
 var indexController = require('./controllers/index')(schedule);
 var signUpController = require('./controllers/signUp')(waitingList);
