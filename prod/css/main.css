@@ -120,7 +120,10 @@ img {
 /* ==========================================================================
    Variables
    ========================================================================== */
-a, .btn, .social li a {
+a, input[type=search],
+input[type=text],
+textarea, .form-file label, .btn, .logo h1, .icon-arrow-down,
+.icon-arrow-up, .social li a {
   transition-property: all;
   transition-duration: .2s;
   transition-timing-function: ease-in; }
@@ -711,14 +714,20 @@ a {
 /* ==========================================================================
    Forms
    ========================================================================== */
-input {
+input[type=search],
+input[type=text],
+textarea {
+  vertical-align: middle;
   position: relative;
   padding: 0.625rem;
-  background: #fbfbfb;
   border: 0.1rem solid #eeeeee;
-  vertical-align: middle; }
-  input:focus {
-    outline: none; }
+  background: #fbfbfb; }
+  input[type=search]:focus,
+  input[type=text]:focus,
+  textarea:focus {
+    border-color: #f4b400;
+    outline: none;
+    background: white; }
 
 input[type=search],
 input[type=text] {
@@ -728,24 +737,28 @@ input[type=text] {
 label {
   vertical-align: text-top;
   display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
+  -khtml-user-select: none; }
 
 legend {
+  overflow: hidden;
   width: 1px;
-  height: 1px;
-  overflow: hidden; }
+  height: 1px; }
+
+.form-file input[type="file"] {
+  position: fixed;
+  top: -1000px; }
 
 /* ==========================================================================
    Buttons
    ========================================================================== */
-.btn {
+.btn, .form-file label {
   font: inherit;
   text-align: center;
   vertical-align: middle;
@@ -760,8 +773,10 @@ legend {
   background: none;
   cursor: pointer; }
   .btn:hover,
+  .form-file label:hover,
   .btn:active,
-  .btn:focus {
+  .form-file label:active,
+  .btn:focus, .form-file label:focus {
     text-decoration: none;
     color: #f4b400;
     background: black; }
@@ -800,10 +815,10 @@ main {
   position: relative;
   clear: both; }
   .section.about {
-    padding-top: 7.5rem;
-    padding-bottom: 7.5rem; }
+    padding-top: 5rem;
+    padding-bottom: 5rem; }
   .section.schedule {
-    padding-bottom: 10rem; }
+    padding-bottom: 5rem; }
 
 /*
    #Nav
@@ -827,21 +842,10 @@ main {
         padding-right: 1.66667%; } }
     @media (min-width: 64em) {
       .navbar .brand {
-        width: 75%;
+        width: 66.66667%;
         float: left;
         padding-left: 1.66667%;
         padding-right: 1.66667%; } }
-  .navbar > ul li {
-    width: 33.33333%;
-    float: left; }
-    @media (min-width: 37.5em) {
-      .navbar > ul li {
-        width: 16.66667%;
-        float: left; } }
-    @media (min-width: 64em) {
-      .navbar > ul li {
-        width: 8.33333%;
-        float: left; } }
 
 /*
    About
@@ -859,6 +863,10 @@ main {
       float: left;
       padding-left: 1.66667%;
       padding-right: 1.66667%; } }
+
+@media (min-width: 37.5em) {
+  .about-info {
+    margin-bottom: none; } }
 
 /*
    #Schedule Blocks
@@ -905,11 +913,42 @@ main {
    #Signup Form
    ========================================================================== */
 .signup-form {
-  width: 50%;
+  clear: both;
+  width: 100%;
   float: left;
   padding-left: 1.66667%;
-  padding-right: 1.66667%;
-  margin-left: 50%; }
+  padding-right: 1.66667%; }
+  @media (min-width: 50em) {
+    .signup-form {
+      width: 66.66667%;
+      float: left;
+      padding-left: 1.66667%;
+      padding-right: 1.66667%;
+      margin-left: 16.66667%; } }
+  @media (min-width: 64em) {
+    .signup-form {
+      width: 50%;
+      float: left;
+      padding-left: 1.66667%;
+      padding-right: 1.66667%;
+      margin-left: 25%; } }
+
+/*
+   #Waiting List
+   ========================================================================== */
+.waiting-list {
+  clear: both;
+  width: 100%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%; }
+  @media (min-width: 50em) {
+    .waiting-list {
+      width: 66.66667%;
+      float: left;
+      padding-left: 1.66667%;
+      padding-right: 1.66667%;
+      margin-left: 16.66667%; } }
 
 /* ==========================================================================
    Intro - Landing area
@@ -951,30 +990,25 @@ main {
 
 .side-left {
   left: 0;
-  outline: 0.2rem solid #000;
+  outline: 0.2rem solid #000000;
   /* avoid gap */ }
   .side-left .overlay-color {
     background: rgba(108, 20, 0, 0.5); }
-  .side-left .overlay-img {
-    left: -10%;
-    background: url(../img/fit-to-print.jpg) no-repeat center center;
-    background-size: cover;
-    filter: blur(15px); }
-  .side-left h1 {
-    color: white; }
 
 .side-right {
   right: 0;
-  outline: 0.2rem solid #000;
+  outline: 0.2rem solid #000000;
   /* avoid gap */ }
   .side-right .overlay-color {
     background: rgba(0, 51, 86, 0.5); }
-  .side-right .overlay-img {
-    background: url(../img/biz-caj.jpg) no-repeat center center;
-    background-size: cover;
-    filter: blur(15px); }
-  .side-right h1 {
-    color: white; }
+
+.side .overlay-img {
+  background: no-repeat center center;
+  background-size: cover;
+  -webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px); }
 
 .intro-content {
   -webkit-transform: translateY(-50%) translateX(-50%);
@@ -1015,17 +1049,22 @@ main {
   z-index: 2;
   top: 50%;
   left: 50%;
-  width: 7.5rem; }
+  width: 5rem; }
   @media (min-width: 37.5em) {
     .icn-vs,
     .when {
       width: inherit; } }
 
+@media (min-width: 37.5em) {
+  .icn-vs {
+    width: 7.5rem; } }
+
 .when {
   font-weight: 700;
+  text-align: center;
   text-transform: uppercase;
-  top: 75%;
-  top: 3rem;
+  top: 2.5rem;
+  min-width: 18rem;
   padding: 1.25rem;
   color: #f4b400;
   border: 0.2rem solid #f4b400;
@@ -1058,28 +1097,83 @@ main,
     -ms-transform: rotate(-1deg);
     -o-transform: rotate(-1deg);
     transform: rotate(-1deg);
-    border-top: rgba(255, 255, 255, 0.2) solid 0.1rem;
     position: absolute;
     z-index: -1;
     top: -2.5rem;
-    left: -5rem;
+    left: -2.5rem;
     display: block;
     width: 120%;
     height: 7.5rem;
+    border-top: rgba(255, 255, 255, 0.2) solid 0.1rem;
     background: #f4b400;
     content: ''; }
-  .navbar > ul a {
-    text-align: center;
-    display: block;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    color: black; }
-    .navbar > ul a:hover,
-    .navbar > ul a:active {
-      border-bottom: 0.1rem solid white; }
+  .navbar > ul {
+    display: inline-block; }
+    @media (min-width: 37.5em) {
+      .navbar > ul {
+        float: right; } }
+    .navbar > ul a {
+      text-align: right;
+      text-align: center;
+      display: block;
+      margin: 0 0.625rem;
+      padding: 0.5rem 0.75rem;
+      color: black;
+      border-bottom: 0.1rem solid #ffd45b; }
+      .navbar > ul a:hover,
+      .navbar > ul a:active {
+        background: #ffd45b; }
   .navbar .brand h1 {
     text-transform: uppercase;
     margin: 0; }
+
+.logo:hover h1,
+.logo:active h1 {
+  color: white; }
+
+.icon-arrow-down,
+.icon-arrow-up {
+  width: 100%;
+  height: 100%;
+  fill: black; }
+
+.link-down,
+.link-up {
+  -webkit-border-radius: 50%;
+  -khtml-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: -3.5rem;
+  right: 1.25rem;
+  display: block;
+  width: 1.875rem;
+  height: 1.875rem;
+  padding: 0.2rem;
+  background: #f4b400; }
+  .link-down:hover svg,
+  .link-down:active svg,
+  .link-up:hover svg,
+  .link-up:active svg {
+    fill: white; }
+
+@media (min-width: 50em) {
+  .link-down {
+    top: -4rem; } }
+
+.link-up {
+  top: -0.75rem;
+  right: 50%;
+  left: 50%;
+  padding: 0.5rem;
+  background: #333333; }
+
+.icon-arrow-up {
+  position: relative;
+  bottom: 0.5rem;
+  fill: #737373; }
 
 /* ==========================================================================
    About section
@@ -1135,7 +1229,7 @@ main,
    ========================================================================== */
 #cd-google-map {
   margin-bottom: 5rem;
-  margin-bottom: 10rem; }
+  margin-bottom: 5rem; }
 
 #google-container {
   width: 96.66666%;
@@ -1148,7 +1242,7 @@ main,
   bottom: 0;
   left: 3.3%;
   width: 93.4%;
-  padding: 2.5rem 2.5rem;
+  padding: 1.25rem 2.5rem;
   color: black;
   background-color: rgba(255, 255, 255, 0.8); }
 
@@ -1157,6 +1251,7 @@ main,
    ========================================================================== */
 .site-footer {
   text-align: center;
+  position: relative;
   z-index: 4;
   padding: 0;
   background: #333333; }
@@ -1187,4 +1282,54 @@ main,
     .social li a:active,
     .social li a:focus {
       text-decoration: none;
-      opacity: 0.75; }
+      color: white; }
+
+.jason-link {
+  text-decoration: underline; }
+  .jason-link:hover,
+  .jason-link:active,
+  .jason-link:focus {
+    color: white; }
+
+/* ==========================================================================
+   Signup
+   ========================================================================== */
+.signup-form {
+  background: white;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding: 1.25rem 2.5rem 2.5rem 2.5rem; }
+
+.form-group {
+  margin-bottom: 1.25rem; }
+  .form-group label {
+    display: block; }
+  .form-group input[type=text],
+  .form-group input[type=file],
+  .form-group textarea {
+    width: 100%; }
+
+/* ==========================================================================
+   Waiting List
+   ========================================================================== */
+.waiting-list {
+  background: white;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding-bottom: 1.25rem; }
+
+table {
+  width: 100%;
+  border-collapse: collapse; }
+
+tr:nth-of-type(odd) {
+  background: #fbfbfb; }
+
+th {
+  background: #ffd45b; }
+
+td,
+th {
+  padding: 1.25rem;
+  border: 0.1rem solid #eeeeee;
+  text-align: left; }
