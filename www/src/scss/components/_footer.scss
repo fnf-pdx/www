@@ -4,6 +4,7 @@
 
 .site-footer {
     text-align: center;
+    position: relative;
     z-index: $zindex-footer;
     padding: 0;
     background: $grayDarkest;
@@ -43,7 +44,7 @@
         &:active,
         &:focus {
             text-decoration: none;
-            opacity: 0.75;
+            color: $white;
         }
     }
 }
@@ -55,5 +56,4 @@
     &:focus {
         color: $white;
     }
-
 }
