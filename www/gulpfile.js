@@ -17,6 +17,8 @@ var src = {
   html: 'src/html/*.html'
 };
 
+var dest = './dev';
+
 function getJsonData(file) {
   var filePath = './src/data/' + path.basename(file.path, '.html') + '.json';
   var fileContents;
@@ -56,8 +58,7 @@ gulp.task('html', function() {
   return gulp.src(src.html)
     .pipe(data(getJsonData))
     .pipe(swig({defaults: {cache: false}}))
-    .pipe(gulp.dest('./dev'))
-    .on("end", reload);
+    .pipe(gulp.dest(dest));
 });
 
 gulp.task('js', function() {
@@ -71,3 +72,37 @@ gulp.task('img', function() {
 });
 
 gulp.task('default', ['serve']);
+
+//TODO: figure out how to merge prod and dev tasks
+
+gulp.task('build-sass', function() {
+  return gulp.src(src.scss)
+    .pipe(sass())
+    .pipe(gulp.dest('./prod/css'));
+});
+
+gulp.task('build-html', function() {
+  return gulp.src(src.html)
+    .pipe(data(getJsonData))
+    .pipe(swig())
+    .pipe(gulp.dest('./prod'));
+});
+
+gulp.task('build-js', function() {
+  return gulp.src(src.js)
+    .pipe(gulp.dest('./prod/js'));
+});
+
+gulp.task('build-img', function() {
+  return gulp.src(src.img)
+    .pipe(gulp.dest('./prod/img'));
+});
+
+gulp.task('build', [
+  'build-sass',
+  'build-html',
+  'build-js',
+  'build-img'
+]);
+
+
