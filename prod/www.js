@@ -8,8 +8,9 @@ AWS.config.region = 'us-west-2';
 
 var ddb = new AWS.DynamoDB();
 
-var waitingList = require('./../.././models/waitingList')(ddb);
-var schedule = require('./../.././models/schedule')(ddb);
+var models = require('fnf-models');
+var schedule = models.schedule(ddb);
+var waitingList = models.waitingList(ddb);
 
 var indexController = require('./controllers/index')(schedule);
 var signUpController = require('./controllers/signUp')(waitingList);
@@ -21,7 +22,6 @@ var server = new Hapi.Server();
 server.connection({ port: 3000 });
 
 server.views({
-  isCached: false, //dev mode
   engines: {
     html: require('swig')
   },
@@ -86,20 +86,14 @@ server.route({
   method: 'GET',
   path: '/sign-up',
   handler: {
-    view: 'signUp'
+    view: 'sign-up'
   }
-});
-
-server.route({
-  method: 'POST',
-  path: '/sign-up',
-  handler: signUpController.save
 });
 
 server.route({
   method: 'GET',
   path: '/waiting-list',
-  handler: waitingListController.list
+  handler: waitingListController
 });
 
 server.register({
