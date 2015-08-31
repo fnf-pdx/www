@@ -10,27 +10,25 @@ main,
 }
 
 .navbar {
-    bottom: 20%;
+    overflow-x: visible;
     padding-top: $baseSpacing;
     padding-bottom: $baseSpacing;
     border-bottom: rgba($white, 0.2) solid $borderWidth;
     background: $bckgColor;
-    overflow-x: visible;
-    &:before {
-        @include transform(rotate(-1deg));
+    &:after {
+        @include transform(rotate(-.75deg));
         position: absolute;
         z-index: -1;
-        top: -$baseSpacing;
-        left: -2%;
-        display: block;
-        width: 102.5%;
-        height: $baseSpacing * 3;
-        border-top: rgba($white, 0.2) solid $borderWidth;
+        top: -0.75rem;
+        right: 0%;
+        width: 100%;
+        height: $baseSpacing;
         background: $bckgColor;
         content: '';
     }
     > ul {
-            display: inline-block;
+            text-align: center;
+            display: block;
             @include breakpoint(phablet) {
                 float: right;
             }
@@ -38,7 +36,7 @@ main,
             text-align: right;
             text-align: center;
             display: block;
-            margin: 0 ($baseSpacing * 0.25);
+            margin: ($baseSpacing * 0.25) ($baseSpacing * 0.25) 0 ($baseSpacing * 0.25);
             padding: 0.5rem 0.75rem;
             color: $colorText;
             border-bottom: $borderWidth solid $yellowSecondary;
@@ -78,7 +76,7 @@ main,
 .link-up {
     @include border-radius(50%);
     position: absolute;
-    top: -3.5rem;
+    top: -2rem;
     right: $baseSpacing * 0.5;
     display: block;
     width: $baseSpacing * 0.75;
@@ -95,7 +93,7 @@ main,
 
 .link-down {
     @include breakpoint(tablet) {
-        top: -4rem;
+        top: -2.25rem;
     }
 }
 
@@ -112,4 +110,14 @@ main,
     bottom: 0.5rem;
 
     fill: $gray;
+}
+
+.logo {
+    width: 100%;
+    max-width: 299.916px;
+    max-height: 88.488px;
+    @include breakpoint(mobileonly) {
+        display: block;
+        margin: 0 auto;
+    }
 }

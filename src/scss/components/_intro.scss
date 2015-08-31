@@ -19,11 +19,6 @@
     -webkit-backface-visibility: hidden;
 }
 
-.open-left .side,
-.open-right .side {
-    cursor: default;
-}
-
 .overlay-img,
 .overlay-color {
     position: absolute;
@@ -63,10 +58,10 @@
      .overlay-img {
         background: no-repeat center center;
         background-size: cover;
-        -webkit-filter: blur(15px);
-        -moz-filter: blur(15px);
-        -o-filter: blur(15px);
-        -ms-filter: blur(15px);
+        -webkit-filter: blur(8px);
+        -moz-filter: blur(8px);
+        -o-filter: blur(8px);
+        -ms-filter: blur(8px);
     }
 }
 
@@ -77,7 +72,6 @@
     top: 50%;
     left: 50%;
     width: 50%;
-    cursor: pointer;
     @include breakpoint(phablet) {
         font-size: 4rem;
         width: 75%;

@@ -93,7 +93,6 @@ gulp.task('build-img', function() {
 
 gulp.task('build', [
   'build-sass',
-  'build-html',
   'build-js',
   'build-img'
 ]);
