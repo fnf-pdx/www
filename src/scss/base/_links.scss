@@ -2,16 +2,21 @@
    Links
    ========================================================================== */
 
-a {
+a,
+a:visited {
     @extend %transition-default;
     text-decoration: none;
-    color: $blueSecondary;
+    color: $blue;
     outline: none;
-    &:visited {
-        color: inherit;
-    }
     &:hover,
     &:active {
-        color: $blue;
+        color: $white;
+    }
+}
+
+button,
+.btn {
+    &:visited {
+        color: inherit;
     }
 }

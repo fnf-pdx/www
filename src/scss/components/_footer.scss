@@ -49,8 +49,9 @@
     }
 }
 
-.jason-link {
+a.jason-link {
     text-decoration: underline;
+    color: darken($grayLight, 50%);
     &:hover,
     &:active,
     &:focus {
