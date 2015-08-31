@@ -2,41 +2,67 @@
 
 {% block content %}
     <div class="signup-form">
+
+        {% if message %}
+            <p style="color: green">{{ message }}</p>
+        {% endif %}
+
+        {% for message in validationMessages %}
+        <ul class="text-danger">
+            <li style="color: red">{{ message }}</li>
+        </ul>
+        {% endfor %}
+
         <h1>Sign Up for FNF</h1>
-        <p>Every team has equal access and will be booked for a 17min. set on Thursday Night Throwdowns on a first come first serve basis. Winning TNT teams will be booked for Friday Night Fights.</p>
-        <form action="/sign-up" method="post">
+        <p>Every team has equal access and will be booked for a 17min. set on Thursday Night Throwdown on a first come first serve basis. Winning TNT teams will be booked for Friday Night Fights.</p>
+        <form action="/sign-up" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="team">Team Name</label>
-                <input name="team" type="text" class="form-control" id="team" placeholder="Team Name" tabindex="1">
+                <label for="name">Team Name</label>
+                <input name="name" type="text" class="form-control" id="name" placeholder="Drama Kings" tabindex="1">
             </div>
             <div class="form-group">
-                <label for="members">Team Members</label>
-                <input name="members" type="text" class="form-control" id="members" placeholder="Team Members" tabindex="2">
+                <label for="facebook">Facebook Page</label>
+                <input name="facebook" type="text" class="form-control" id="facebook" placeholder="wwww.facebook.com/dramakingsimprov" tabindex="2">
+                <p class="help-block">You can do it! <a href="https://www.facebook.com/pages/create/">It's not that hard!</a></p>
             </div>
+            <div class="form-group">
+                <label for="contactName">Contact Name</label>
+                <input name="contactName" type="text" class="form-control" id="contactName" tabindex="3">
+            </div>
+            <div class="form-group">
+                <label for="contactNumber">Contact Number</label>
+                <input name="contactNumber" type="tel" class="form-control" id="contactNumber" tabindex="4">
+            </div>
+            <!--<div class="form-group">-->
+                <!--<label for="members">Team Members</label>-->
+                <!--<input name="members" type="text" class="form-control" id="members" placeholder="Team Members" tabindex="2">-->
+            <!--</div>-->
             <div class="form-group form-file">
                 <div>Team Photo</div>
-                <label for="photo">Upload Team Photo</label>
-                <input name="photo" type="file" id="photo" tabindex="3">
+                <label for="photo">Show us your beautiful faces</label>
+                <input name="photo" type="file" id="photo" tabindex="5">
             </div>
             <div class="form-group">
-                <label for="origin">How We Formed</label>
-                <textarea name="origin" class="form-control" id="origin" rows="3" placeholder="Tell us how you met?" tabindex="4"></textarea>
+                <label for="origin">Tell us how you met!</label>
+                <textarea name="origin" class="form-control" id="origin" rows="3" placeholder="It was a dark and stormy night ..." tabindex="6"></textarea>
             </div>
             <div class="form-group">
-                <label for="style">What We Do</label>
-                <textarea name="style" class="form-control" id="style" rows="3" placeholder="What kind of format? Tags and sweeps? Armando?" tabindex="5"></textarea>
+                <label for="format">What kind of format do you do?</label>
+                <textarea name="format" class="form-control" id="format" rows="3" placeholder="Well, you start with four people facing three different directions ..." tabindex="7"></textarea>
             </div>
             <div class="form-group">
-                <label for="coach">Coach</label>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"> Do you have a coach?
-                    </label>
-                </div>
-                <input name="coach" type="text" class="form-control" id="coach" placeholder="Coach's Name">
+                <label for="coach">Do you have a Coach?</label>
+                <input name="coach" type="text" class="form-control" id="coach" placeholder="Jake Michaels" tabindex="8">
+                <p class="help-block">If not, consider getting one. It makes a huge difference, and Portland has many talented improvisers that would love to coach you. Have you tried asking?</p>
             </div>
+
+            {% for message in validationMessages %}
+            <ul class="text-danger">
+                <li style="color: red">{{ message }}</li>
+            </ul>
+            {% endfor %}
+
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
-        <p class="text-danger">{{ message }}</p>
     </div>
 {% endblock %}

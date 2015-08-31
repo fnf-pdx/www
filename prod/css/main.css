@@ -122,7 +122,8 @@ img {
    ========================================================================== */
 a, input[type=search],
 input[type=text],
-textarea, .form-file label, .btn, .logo h1, .icon-arrow-down,
+textarea, .form-file label, .btn,
+a.btn, .logo h1, .icon-arrow-down,
 .icon-arrow-up, .social li a {
   transition-property: all;
   transition-duration: .2s;
@@ -758,7 +759,9 @@ legend {
 /* ==========================================================================
    Buttons
    ========================================================================== */
-.btn, .form-file label {
+.btn,
+.form-file label,
+a.btn {
   font: inherit;
   text-align: center;
   vertical-align: middle;
@@ -767,6 +770,7 @@ legend {
   overflow: visible;
   margin: 0;
   padding: 0.25rem 0.75rem;
+  color: inherit;
   color: none;
   border: 0.2rem solid black;
   border-radius: 0.25rem;
@@ -776,7 +780,11 @@ legend {
   .form-file label:hover,
   .btn:active,
   .form-file label:active,
-  .btn:focus, .form-file label:focus {
+  .btn:focus,
+  .form-file label:focus,
+  a.btn:hover,
+  a.btn:active,
+  a.btn:focus {
     text-decoration: none;
     color: #f4b400;
     background: black; }
@@ -864,9 +872,11 @@ main {
       padding-left: 1.66667%;
       padding-right: 1.66667%; } }
 
-@media (min-width: 37.5em) {
-  .about-info {
-    margin-bottom: none; } }
+.about-info {
+  margin-bottom: 2.5rem; }
+  @media (min-width: 37.5em) {
+    .about-info {
+      margin-bottom: none; } }
 
 /*
    #Schedule Blocks
@@ -1089,7 +1099,8 @@ main,
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
   border-bottom: rgba(255, 255, 255, 0.2) solid 0.1rem;
-  background: #f4b400; }
+  background: #f4b400;
+  overflow-x: visible; }
   .navbar:before {
     -webkit-transform: rotate(-1deg);
     -khtml-transform: rotate(-1deg);
@@ -1100,9 +1111,9 @@ main,
     position: absolute;
     z-index: -1;
     top: -2.5rem;
-    left: -2.5rem;
+    left: -2%;
     display: block;
-    width: 120%;
+    width: 102.5%;
     height: 7.5rem;
     border-top: rgba(255, 255, 255, 0.2) solid 0.1rem;
     background: #f4b400;

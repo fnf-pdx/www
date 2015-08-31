@@ -9,6 +9,7 @@
     "hapi": "^8.8.1",
     "lodash": "^3.10.1",
     "moment-timezone": "^0.4.0",
+    "s3-upload-stream": "^1.0.7",
     "swig": "^1.4.2"
   },
   "devDependencies": {

@@ -81,13 +81,6 @@ gulp.task('build-sass', function() {
     .pipe(gulp.dest('./prod/css'));
 });
 
-gulp.task('build-html', function() {
-  return gulp.src(src.html)
-    .pipe(data(getJsonData))
-    .pipe(swig())
-    .pipe(gulp.dest('./prod'));
-});
-
 gulp.task('build-js', function() {
   return gulp.src(src.js)
     .pipe(gulp.dest('./prod/js'));
