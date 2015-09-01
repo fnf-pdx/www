@@ -6,10 +6,22 @@
             <svg class="icn-vs">
                 <use xlink:href="#icn-vs"></use>
             </svg>
-            <div class="when"><span>Next Show:</span>{{ nextshow.date }}</div>
+            <div class="when"><span>Next Show:</span>
+                {% if intro %}
+                    {{ nextshow.date }}
+                {% else %}
+                    TBA
+                {% endif %}
+            </div>
             <div class="side side-left">
                 <div class="intro-content">
-                    <h1>{{ intro.team1.name }}</h1>
+                    <h1>
+                        {% if intro %}
+                            {{ intro.team1.name }}
+                        {% else %}
+                            ???
+                        {% endif %}
+                    </h1>
                 </div>
                 <div class="overlay-color"></div>
                 <div class="overlay-img" style="background-image: url(../img/fit-to-print.jpg);">
@@ -17,7 +29,13 @@
             </div>
             <div class="side side-right">
                 <div class="intro-content">
-                    <h1>{{ intro.team2.name }}</h1>
+                    <h1>
+                        {% if intro %}
+                            {{ intro.team2.name }}
+                        {% else %}
+                            ???
+                        {% endif %}
+                    </h1>
                 </div>
                 <div class="overlay-color"></div>
                 <div class="overlay-img" style="background-image: url(../img/biz-caj.jpg);"></div>
@@ -44,38 +62,46 @@
     <div class="schedule-table fnf">
         <div class="schedule-table--wrap">
             <div class="schedule-title">
-                <h5>{{ schedule.fnf.name }}</h5>
+                <h5>Friday Night Fights</h5>
             </div>
             <div class="schedule">
-                {% for show in schedule.fnf.shows %}
-                    <div class="schedule-row">
-                        <div class="schedule-row--left">
-                           {{ show.team1 }} <span>vs</span> {{ show.team2 }}
+                {% if fnfShows.length %}
+                    {% for show in schedule.fnf.shows %}
+                        <div class="schedule-row">
+                            <div class="schedule-row--left">
+                               {{ show.team1 }} <span>vs</span> {{ show.team2 }}
+                            </div>
+                            <div class="schedule-row--right text-right">
+                                {{ show.date }}
+                            </div>
                         </div>
-                        <div class="schedule-row--right text-right">
-                            {{ show.date }}
-                        </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                {% else %}
+                    <div class="schedule-row">TBA</div>
+                {% endif %}
             </div>
         </div>
     </div>
     <div class="schedule-table tnt">
         <div class="schedule-table--wrap">
             <div class="schedule-title">
-                <h5>{{ schedule.fnf.name }}</h5>
+                <h5>Thursday Night Throwdown</h5>
             </div>
             <div class="schedule">
-                {% for show in schedule.fnf.shows %}
-                <div class="schedule-row">
-                    <div class="schedule-row--left">
-                        {{ show.team1 }} <span>vs</span> {{ show.team2 }}
+                {% if tntShows.length %}
+                    {% for show in schedule.fnf.shows %}
+                    <div class="schedule-row">
+                        <div class="schedule-row--left">
+                            {{ show.team1 }} <span>vs</span> {{ show.team2 }}
+                        </div>
+                        <div class="schedule-row--right text-right">
+                            {{ show.date }}
+                        </div>
                     </div>
-                    <div class="schedule-row--right text-right">
-                        {{ show.date }}
-                    </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
+                {% else %}
+                    <div class="schedule-row">TBA</div>
+                {% endif %}
             </div>
         </div>
     </div>
